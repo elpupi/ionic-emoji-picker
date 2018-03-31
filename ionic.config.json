@@ -1,0 +1,8 @@
+{
+  "name": "IonicEmokiPicker",
+  "app_id": "23870729",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
