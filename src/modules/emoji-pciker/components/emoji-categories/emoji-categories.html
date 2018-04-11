@@ -1,0 +1,13 @@
+<ng-container *ngIf="emojisCategories !== undefined; else categoriesSkeleton">
+
+    <ng-container *ngFor="let category of emojisCategories">
+        <mt-emoji-picker-button (mtSelection)="handleCategorySelection($event)"
+                                [mtDataToEmit]="category"
+                                [mtEmoji]="category.emoji"></mt-emoji-picker-button>
+    </ng-container>
+
+</ng-container>
+
+<ng-template #categoriesSkeleton>
+    <p>skeleton categories</p>
+</ng-template>

@@ -1,14 +1,28 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Ionic Blank
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+    <!--  <p>selectEvent: {{ selectEvent }}</p>
+    <p>caretEvent: {{ caretEvent }}</p> -->
+
+    <!-- [textContent]="content" -->
+    <!-- (input)="content = $event.target.textContent" -->
+    <!--     <div class="emoji-content-editable"
+         (mtEmojiPickerCaretEmitter)="handleCurrentCaret($event)"
+         (input)="content = $event.target.innerHTML"
+         [innerHTML]="content"
+         contenteditable="true"></div> -->
+    <p class="emoji-content-editable"
+       [innerHTML]="content"></p>
+
+    <mt-emoji-picker [mtInputAutofocus]="true"
+                     (mtEmojiSelect)="emojiSelectedHandler($event)"
+                     (mtPickerClose)="pickerClosedHandler($event)"></mt-emoji-picker>
+
 </ion-content>

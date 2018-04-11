@@ -1,0 +1,31 @@
+$ep-emoji-width: 34px;
+$ep-padding: 10px;
+$ep-border-size: 1px;
+$ep-input-font-size: 14px;
+$ep-font-size: 16px;
+
+$ep-height: $ep-emoji-width * (5 + 1) + $ep-padding * 5 + $ep-border-size * 4 + $ep-input-font-size + 3px + $ep-font-size + 3px + $ep-padding * 2;
+
+$ep-border-radius: 3px;
+$ep-background-panel: #FFF;
+$ep-padding-results: $ep-padding;
+$ep-width: $ep-emoji-width * 7 + $ep-padding-results * 2;
+
+mt-emoji-picker-content {
+    display: flex;
+    flex-direction: column;
+    width: 600px; // 100vw;
+    height: $ep-height;
+    border-radius: $ep-border-radius;
+    background: $ep-background-panel;
+    text-align: left;
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+
+    /*  @media (min-width: $ep-width) {
+         width: $ep-width;
+     } */
+
+    emoji-list {
+        flex-grow: 1;
+    }
+}

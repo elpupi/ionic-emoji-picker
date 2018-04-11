@@ -1,0 +1,18 @@
+$ep-padding: 10px;
+$ep-margin: 10px;
+$ep-padding-results: $ep-padding;
+
+mt-emoji-picker-list {
+    overflow-y: auto;
+
+    .emoji-list {
+        padding: 0 $ep-padding-results $ep-padding-results;
+    }
+
+    .emoji-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: ($ep-margin / 2) 0;
+    }
+}

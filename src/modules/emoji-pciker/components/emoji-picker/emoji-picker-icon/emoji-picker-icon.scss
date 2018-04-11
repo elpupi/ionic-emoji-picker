@@ -1,0 +1,56 @@
+$ep-emoji-width: 34px;
+$ep-border-radius: 3px;
+
+mt-emoji-picker-icon {
+    display: inline-block;
+
+    .emoji-icon {
+        padding: 0;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        width: $ep-emoji-width;
+        height: $ep-emoji-width;
+        border: 5px solid transparent;
+        border-radius: $ep-border-radius;
+        font-size: $ep-emoji-width - 10px;
+        line-height: 1.1;
+        transition: all 0.2s;
+
+        &:hover, &:focus {
+            background: #F1F1F1;
+            border-color: #F1F1F1;
+        }
+    }
+
+    .emoji-icon-from-sheet {
+        padding: 0;
+        border: none;
+        outline: none;
+        display: inline-block;
+        background-repeat: no-repeat;
+
+        /** box shaddowing the edges until I find a better sprite sheet */
+        box-shadow: 0 0 1px 1px white inset;
+        background-size: 25px * 1568 / 32;
+        width: 25px;
+        height: 25px;
+    }
+
+    .emoji-icon-from-sheet-enclosure {
+        display: inline-block;
+        cursor: pointer;
+        line-height: 0;
+        padding: 4.5px;
+        border-radius: $ep-border-radius;
+
+        &:hover, &:focus {
+            background: #F1F1F1;
+            border-color: #F1F1F1;
+
+            .emoji-icon-from-sheet {
+                box-shadow: 0 0 1px 1px #F1F1F1 inset;
+            }
+        }
+    }
+}

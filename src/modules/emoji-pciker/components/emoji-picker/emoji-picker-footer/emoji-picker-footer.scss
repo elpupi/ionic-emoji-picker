@@ -1,0 +1,60 @@
+$ep-border-header: rgb(186, 188, 208); // #F9F9F9;
+$ep-border-radius: 3px;
+$ep-padding-results: $ep-padding;
+$ep-background-header: #FCFCFC;
+
+mt-emoji-picker-footer {
+    .emoji-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: $ep-border-size solid $ep-border-header;
+        border-radius: 0 0 $ep-border-radius $ep-border-radius;
+
+        //  padding: $ep-padding-results;
+        background: $ep-background-header;
+    }
+
+    p {
+        display: flex;
+        flex-direction: column;
+        flex-basis: auto;
+        flex-grow: 1;
+        max-width: 51%;
+
+        // width: 100%;
+        margin: 0;
+        border-right: $ep-border-size solid $ep-border-header;
+
+        // bug text-overflow with flex
+        // https://stackoverflow.com/questions/26465745/ellipsis-in-flexbox-container?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+        min-width: 0;
+    }
+
+    span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .key {
+        color: rgba(117, 124, 145, 0.734);
+        font-size: 1.0rem;
+    }
+
+    .value {
+        color: rgba(140, 94, 99, 0.734);
+        font-size: 0.8rem;
+    }
+
+    p:last-child {
+        border-right: none;
+    }
+}
+
+/* mt-emoji-picker-footer {
+    p {
+        align-items: center;
+        justify-content: space-between;
+    }
+} */

@@ -1,0 +1,20 @@
+$ep-padding: 10px;
+$ep-border-input: #F0F0F0;
+$ep-border-size: 1px;
+$ep-input-font-size: 14px;
+
+mt-emoji-picker-search {
+    input {
+        width: 100%;
+        padding: ($ep-padding / 2) $ep-padding;
+        border: $ep-border-size solid $ep-border-input;
+        outline: none;
+        font-size: $ep-input-font-size;
+        font-weight: inherit;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: darken($ep-border-input, 10%);
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<input [attr.disabled]="disabled ? '' : null"
+       type="text"
+       autocomplete="off"
+       #input
+       (input)="handleInputChange($event.target.value)"
+       placeholder="Search" />

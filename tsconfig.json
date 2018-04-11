@@ -1,28 +1,57 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "declaration": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2015"
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "dom",
+            "es2015"
+        ],
+        "module": "es2015",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "target": "es5",
+        "baseUrl": ".",
+        "paths": {
+            "@modules/*": [
+                "src/modules/*"
+            ],
+            "@services/*": [
+                "src/modules/emoji-pciker/services/*"
+            ],
+            "@components/*": [
+                "src/modules/emoji-pciker/components/*"
+            ],
+            "@directives/*": [
+                "src/modules/emoji-pciker/directives/*"
+            ],
+            "@model/*": [
+                "src/modules/emoji-pciker/model/*"
+            ],
+            "@pipes/*": [
+                "src/modules/emoji-pciker/pipes/*"
+            ],
+            "@data/*": [
+                "src/modules/emoji-pciker/data/*"
+            ],
+            "@json-object-parser/*": [
+                "../JsonObjectParser/src/parser/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "global-ts-definition/**/*.ts",
+        "../JsonObjectParser/src/parser/**/*.ts"
     ],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "target": "es5"
-  },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**/*.spec.ts",
-    "src/**/__tests__/*.ts"
-  ],
-  "compileOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  }
+    "exclude": [
+        "node_modules",
+        "src/**/*.spec.ts",
+        "src/**/__tests__/*.ts"
+    ],
+    "compileOnSave": false,
+    "atom": {
+        "rewriteTsconfig": false
+    }
 }
