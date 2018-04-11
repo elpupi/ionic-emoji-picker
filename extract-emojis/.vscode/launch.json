@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Most Used",
+            "program": "${workspaceFolder}/out/IonicEmojiPicker/extract-emojis/src/emojis-most-used.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch JS mappings",
+            "program": "${workspaceFolder}/out/js-mapping.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch TS path",
+            "program": "${workspaceFolder}/out/tspath.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Extract",
+            "program": "${workspaceFolder}/out/IonicEmojiPicker/extract-emojis/src/extract.js",
+            "preLaunchTask": "Npm tsc-watch",
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Extract v2",
+            "program": "${workspaceFolder}/out/IonicEmojiPicker/extract-emojis/src/extract.js",
+            "preLaunchTask": "tsc: watch - tsconfig.json",
+        }
+    ]
+}
