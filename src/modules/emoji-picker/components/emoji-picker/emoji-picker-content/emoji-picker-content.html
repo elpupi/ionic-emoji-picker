@@ -1,0 +1,13 @@
+<!-- [mtEmojisCategories]="categories" -->
+<mt-emoji-picker-header (mtCategorySelection)="categorySelectionHandler($event)"
+                        [mtInputAutofocus]="inputAutofocus"
+                        [mtEmojisCategories]="(emoji.categories$ | async)"
+                        (mtSearch)="searchHandler($event)"></mt-emoji-picker-header>
+
+<!-- [mtEmojisCategories]="categories" -->
+<mt-emoji-picker-list [mtDimension]="dimension"
+                      [mtEmojisByCategory]="filteredByCategory"
+                      [mtEmojisCategories]="(emoji.categories$ | async)"
+                      (mtEmojiSelection)="emojiSelectedHandler($event)"></mt-emoji-picker-list>
+
+<mt-emoji-picker-footer [mtEmoji]="selected"></mt-emoji-picker-footer>

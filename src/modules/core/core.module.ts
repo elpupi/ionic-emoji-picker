@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { HttpModule } from './http/http.module';
-
+import { FastDom } from './fastdom/fastdom';
 
 
 @NgModule({
@@ -16,7 +16,9 @@ import { HttpModule } from './http/http.module';
         HttpModule,
         CommonModule
     ],
-    providers: []
+    providers: [
+        FastDom
+    ]
 })
 export class CoreModule {
     constructor( @Optional() @SkipSelf() parentModule: CoreModule) {

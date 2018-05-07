@@ -1,0 +1,59 @@
+dimension {
+    .item {
+        padding: 0;
+    }
+
+    .input {
+        //  width: 100%;
+
+    }
+
+    // inside ion-input
+    .text-input {
+        text-align: right;
+        margin: 0;
+        width: 100%;
+    }
+
+    /*
+
+    it works but less compatible
+
+    ng-component:not(.desktop) & {
+            .label {
+                font-size: 1rem;
+            }
+
+            .text-input {
+                font-size: 1rem;
+            }
+
+            .width {
+                margin-right: 2px;
+            }
+        } */
+
+    .label {
+        font-size: 1rem;
+
+        .desktop & {
+            font-size: inherit;
+        }
+    }
+
+    .text-input {
+        font-size: 1rem;
+
+        .desktop & {
+            font-size: inherit;
+        }
+    }
+
+    .width {
+        margin-right: 2px;
+
+        .desktop & {
+            margin-right: 15px;
+        }
+    }
+}

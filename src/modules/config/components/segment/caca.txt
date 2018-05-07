@@ -1,0 +1,58 @@
+    /*
+    * SASS variables
+    */
+
+    $platforms: md ios wp;
+
+    $button-background-color-activated: $button-md-background-color-activated, $button-ios-background-color-activated, $button-wp-background-color-activated;
+
+    $button-outline-background-color-activated: $button-md-outline-background-color-activated $button-ios-outline-background-color-activated $button-wp-outline-background-color-activated;
+
+    $button-outline-background-color-opacity-activated: $button-md-outline-background-color-opacity-activated $button-ios-outline-background-color-opacity-activated $button-wp-outline-background-color-opacity-activated;
+
+    @for $i from 1 through length($platforms) {
+        .#{nth($platforms, $i)} [mt-segment-button].isActivated {
+            background-color: #{nth($button-background-color-activated, $i)};
+        }
+
+        .#{nth($platforms, $i)} [mt-segment-button][outline].isActivated {
+            background-color: rgba($button-outline-background-color-activated, $button-outline-background-color-opacity-activated);
+        }
+    }
+
+
+
+
+
+.button-md.activated {
+  background-color: $button-md-background-color-activated;
+  box-shadow: $button-md-box-shadow-activated;
+}
+
+.button-outline-md.activated {
+  background-color: $button-md-outline-background-color-activated;
+  box-shadow: $button-md-outline-box-shadow-activated;
+  opacity: $button-md-outline-opacity-activated;
+}
+
+.button-ios.activated {
+  background-color: $button-ios-background-color-activated;
+  opacity: $button-ios-opacity-activated;
+}
+
+.button-outline-ios.activated {
+  color: $button-ios-outline-text-color-activated;
+  background-color: $button-ios-outline-background-color-activated;
+  opacity: $button-ios-outline-opacity-activated;
+}
+
+
+
+.button-outline-wp.activated {
+  background-color: rgba($button-wp-outline-background-color-activated, $button-wp-outline-background-color-opacity-activated);
+}
+
+
+.button-outline-wp.activated {
+  background-color: rgba($button-wp-outline-background-color-activated, $button-wp-outline-background-color-opacity-activated);
+}

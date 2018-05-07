@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { CaretEvent } from '../../modules/emoji-pciker/lib/caret-event';
+import { CaretEvent } from '@modules/emoji-picker/lib/caret-event';
 import { EmojiData } from '@model/emoji/emoji-data';
+import { Dimension } from '@model/dimension/dimension';
+import { Platform, PlatformString } from '@model/platform';
 
 
 @Component({
@@ -11,10 +13,16 @@ export class HomePage {
     public content = ''; // 'Type letters...';
     public selectEvent = '';
     public caretEvent = '';
+    public dimension: Dimension = { width: 600, height: 500 };
+    public resolution = 32;
+
+    public platform: string;
+    public platforms = Object.keys(new Platform());
 
     private lastCaretEvent: CaretEvent;
 
     constructor() { }
+
 
     emojiSelectedHandler(emoji: EmojiData) {
         // console.log('emoji selected -> ', event);

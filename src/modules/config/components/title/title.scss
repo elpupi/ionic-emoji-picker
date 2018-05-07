@@ -1,0 +1,47 @@
+mt-title {
+    /*     //   color: rgb(117, 117, 117);
+        [mt-light] &, [mt-light-title] &,
+        &[mt-light], &[mt-light-title] {
+            color: rgb(117, 117, 117);
+        }
+
+        // default
+        [mt-normal] &, [mt-normal-title] &,
+        &[mt-normal], &[mt-normal-title]
+        & {
+            color: rgb(117, 117, 117);
+            font-size: 1.7rem;
+        }
+
+        [mt-strong] &, [mt-strong-title] &,
+        &[mt-strong], &[mt-strong-title] {
+            color: rgb(32, 31, 31);
+            font-size: 1.9rem;
+        } */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    &.light {
+        color: rgb(117, 117, 117);
+    }
+
+    // default
+    &.normal {
+        color: rgb(117, 117, 117);
+        font-size: 1.7rem;
+    }
+
+    &.strong {
+        color: #333;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+    }
+
+    .title__text {
+        padding: 0 10px;
+    }
+}

@@ -1,0 +1,43 @@
+<!-- <button *ngIf="!emojiSheet.sheet; else sheetButton"
+        class="emoji-button emoji-button--unicode"
+        [ngClass]="{'emoji-button--skeleton': isSkeleton()}"
+        (click)="buttonClikedHandler($event)"
+        [innerHTML]="isSkeleton ? '' : emoji.unified | codeToUnicode">
+
+</button> -->
+<!-- {{ emoji.unified | codeToUnicode }} -->
+
+
+<button [ngClass]="ngClass"
+        [ngStyle]="ngStyle"
+        [innerHTML]="innerHTML"
+        (click)="buttonClikedHandler()">
+</button>
+
+
+<!-- <span class="emoji-button2 emoji-button-from-sheet-enclosure"
+      (click)="buttonClikedHandler($event)">
+    <span class="emoji-button-from-sheet"
+          [style.backgroundImage]="'url(' + emojiSheet.url + ')'"
+          [style.backgroundPositionX]="-emoji.sheetX * (emojiSheet.resolution-7) + 'px'"
+          [style.backgroundPositionY]="-emoji.sheetY * (emojiSheet.resolution-7) + 'px'">
+    </span>
+</span> -->
+
+<ng-template #sheetButton>
+
+    <!-- <span class="emoji-button emoji-button--sheet"
+          [ngClass]="{'emoji-button--skeleton': isSkeleton()}"
+          (click)="buttonClikedHandler($event)">
+        <span class="emoji-button-from-sheet"
+              [style.backgroundImage]="'url(' + emojiSheet.url + ')'"
+              [style.backgroundPositionX]="-emoji.sheetX * (emojiSheet.resolution-7) + 'px'"
+              [style.backgroundPositionY]="-emoji.sheetY * (emojiSheet.resolution-7) + 'px'">
+        </span>
+    </span> -->
+    <!--
+     [style.backgroundPositionX]="-emojiPickerOptions.locator(emoji[1]).x * 25 + 'px'"
+     [style.backgroundPositionY]="-emojiPickerOptions.locator(emoji[1]).y
+    * 25 + 'px'"
+-->
+</ng-template>

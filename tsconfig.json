@@ -8,7 +8,8 @@
             "dom",
             "es2015"
         ],
-        "module": "es2015",
+        // "module": "es2015",
+        "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
         "target": "es5",
@@ -18,32 +19,55 @@
                 "src/modules/*"
             ],
             "@services/*": [
-                "src/modules/emoji-pciker/services/*"
+                "src/modules/emoji-picker/services/*",
+            ],
+            "@config/services/*": [
+                "src/modules/config/services/*"
             ],
             "@components/*": [
-                "src/modules/emoji-pciker/components/*"
+                "src/modules/emoji-picker/components/*",
+            ],
+            "@config/components/*": [
+                "src/modules/config/components/*",
             ],
             "@directives/*": [
-                "src/modules/emoji-pciker/directives/*"
+                "src/modules/emoji-picker/directives/*"
             ],
             "@model/*": [
-                "src/modules/emoji-pciker/model/*"
+                "src/modules/emoji-picker/model/*",
+            ],
+            "@config/model/*": [
+                "src/modules/config/model/*"
             ],
             "@pipes/*": [
-                "src/modules/emoji-pciker/pipes/*"
+                "src/modules/emoji-picker/pipes/*"
             ],
             "@data/*": [
-                "src/modules/emoji-pciker/data/*"
+                "src/modules/emoji-picker/data/*"
+            ],
+            "@util/*": [
+                "src/util/*"
             ],
             "@json-object-parser/*": [
                 "../JsonObjectParser/src/parser/*"
+            ],
+            "@features-detection/*": [
+                "../FeaturesDetection/src/*"
+            ],
+            "@core/*": [
+                "../FeaturesDetection/src/core/*"
+            ],
+            "@proxy/*": [
+                "../Proxy/src/*"
             ]
         }
     },
     "include": [
         "src/**/*.ts",
         "global-ts-definition/**/*.ts",
-        "../JsonObjectParser/src/parser/**/*.ts"
+        "../JsonObjectParser/src/parser/**/*.ts",
+        "../FeaturesDetection/src/**/*.ts",
+        "../Proxy/src/**/*.ts"
     ],
     "exclude": [
         "node_modules",

@@ -1,0 +1,31 @@
+<!-- <ion-item>
+    <ion-icon name="wifi"
+              item-start></ion-icon>
+    <ion-label>Use sheet/unicode</ion-label>
+    <ion-toggle [(ngModel)]="online"></ion-toggle>
+
+</ion-item>
+ -->
+
+<!-- <ion-item> -->
+<!--     <ion-icon name="play"
+              item-start></ion-icon>
+ -->
+<!-- <ion-label>Sheet/Unicode</ion-label> -->
+<!-- <ion-segment [(ngModel)]="mode">
+    <ion-segment-button value="sheet">
+        Sheet
+    </ion-segment-button>
+    <ion-segment-button value="unicode">
+        Unicode
+    </ion-segment-button>
+</ion-segment>
+ -->
+<ion-segment [(ngModel)]="mode">
+    <ion-segment-button [value]="m"
+                        *ngFor="let m of modes">
+        {{ m }}
+    </ion-segment-button>
+</ion-segment>
+
+<!-- </ion-item> -->

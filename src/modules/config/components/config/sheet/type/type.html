@@ -1,0 +1,28 @@
+<!-- <ion-item>
+    <ion-icon name="image"
+              item-start></ion-icon> -->
+<!--  <ion-label>Raster/SVG</ion-label> -->
+
+<!--  <ion-item> -->
+<!-- (ionicchange)="" -->
+<!--         <ion-segment [(ngModel)]="type"
+                     color="primary">
+
+            <ion-segment-button value="raster">
+                Raster
+            </ion-segment-button>
+            <ion-segment-button value="svg">
+                SVG
+            </ion-segment-button>
+        </ion-segment>
+    </ion-item>
+
+</ion-item>
+ -->
+
+<ion-segment [(ngModel)]="type">
+    <ion-segment-button [value]="t"
+                        *ngFor="let t of types">
+        {{ t }}
+    </ion-segment-button>
+</ion-segment>

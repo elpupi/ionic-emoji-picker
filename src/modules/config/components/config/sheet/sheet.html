@@ -1,0 +1,119 @@
+<!-- <ion-list>
+
+    <ion-list-header>
+        Sheet Configuration
+        <button ion-button
+                icon-only
+                item-end
+                clear>
+            <ion-icon name="cog"></ion-icon>
+        </button>
+    </ion-list-header>
+
+
+
+    <ion-item-group>
+        <use (toggle)="use=$event"></use>
+        <div *ngIf="use">
+            <platform (select)="platform=$event"></platform>
+            <type (clicked)="type=event"></type>
+            <dimension (changed)="dimension=$event"></dimension>
+            <resolution (changed)="resolution=$event"></resolution>
+            <margin (changed)="margin"></margin>
+        </div>
+
+    </ion-item-group>
+
+
+</ion-list> -->
+
+
+<!-- <ion-card>
+
+    <ion-card-header text-left>
+        Sheet Configuration
+    </ion-card-header>
+
+    <ion-card-content>
+
+        <ion-list no-border>
+
+            <ion-item-group>
+                <use (toggle)="use=$event"></use>
+                <div *ngIf="use">
+                    <platform (select)="platform=$event"></platform>
+                    <type (clicked)="type=event"></type>
+                    <dimension (changed)="dimension=$event"></dimension>
+                    <resolution (changed)="resolution=$event"></resolution>
+                    <margin (changed)="margin"></margin>
+                </div>
+
+            </ion-item-group>
+
+        </ion-list>
+
+    </ion-card-content>
+</ion-card> -->
+
+
+<ion-list no-border>
+    <!--   <ion-item-group> -->
+
+    <!-- <use (toggle)="use=$event"></use>
+        <div *ngIf="use">
+            <platform (select)="platform=$event"></platform>
+            <type (clicked)="type=event"></type>
+            <dimension (changed)="dimension=$event"></dimension>
+            <resolution (changed)="resolution=$event"></resolution>
+            <margin (changed)="margin"></margin>
+        </div>
+ -->
+
+    <mt-question mtIconName="play"
+                 mtTitle="Sheet/Unicode">
+
+        <use mt-question-element></use>
+    </mt-question>
+
+    <div *ngIf="use">
+
+        <mt-question mtIconName="logo-android"
+                     mtTitle="Platform">
+
+            <platform mt-question-element></platform>
+        </mt-question>
+
+
+        <mt-question mtIconName="image"
+                     mtTitle="Raster/SVG">
+
+            <type mt-question-element> </type>
+        </mt-question>
+
+
+        <mt-question mtIconName="resize"
+                     mtTitle="Dimension">
+
+            <dimension mt-question-element></dimension>
+        </mt-question>
+
+
+        <mt-question mtIconName="eye"
+                     mtTitle="Resolution">
+
+            <resolution mt-question-element></resolution>
+        </mt-question>
+
+
+        <mt-question mtIconName="crop"
+                     mtTitle="Margin">
+
+            <margin mt-question-element></margin>
+        </mt-question>
+
+    </div>
+
+
+    <!--  </ion-item-group>
+ -->
+</ion-list>

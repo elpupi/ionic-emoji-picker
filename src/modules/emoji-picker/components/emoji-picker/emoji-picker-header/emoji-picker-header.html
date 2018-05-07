@@ -1,0 +1,6 @@
+<mt-emoji-picker-categories [mtEmojisCategories]="emojisCategories"
+                            (mtCategorySelection)="categorySelectedHandler($event)"></mt-emoji-picker-categories>
+
+<mt-emoji-picker-search (mtSearch)="searchHandler($event)"
+                        [mtDisabled]="emojisCategories === undefined"
+                        [mtInputAutofocus]="inputAutofocus"></mt-emoji-picker-search>

@@ -1,0 +1,72 @@
+<!-- <ion-list-header text-left
+                 class="title">
+    <ion-label class="title__label">
+        <ion-icon class="title__icon"
+                  name="wifi"
+                  item-start>
+        </ion-icon>
+        Mode
+    </ion-label>
+</ion-list-header>
+
+
+
+
+<ion-item class="question">
+
+    <ion-segment (ionChange)="changed($event)"
+                 [(ngModel)]="mode">
+        <ion-segment-button class="question__button"
+                            *ngFor="let mode of modes"
+                            [value]="mode">
+            {{ mode }}
+        </ion-segment-button>
+
+    </ion-segment>
+
+</ion-item>
+ -->
+
+<!-- <div class="title">
+
+    <ion-icon class="title__icon"
+              name="wifi"
+              item-start>
+    </ion-icon>
+    <span class="title__text">Mode</span>
+</div> -->
+
+
+
+<!-- <div class="segment">
+    <button ion-button
+            outline
+            class="segment__button"
+            *ngFor="let mode of modes"
+            [value]="mode"> {{ mode }}</button>
+
+</div> -->
+
+
+<!-- <mt-title mtIconName="wifi">Mode</mt-title>
+ -->
+
+
+<ion-segment [(ngModel)]="mode">
+    <ion-segment-button [value]="m"
+                        *ngFor="let m of modes">
+        {{ m }}
+    </ion-segment-button>
+</ion-segment>
+
+<!-- ion-button
+            outline -->
+<!-- <mt-segment [(model)]="mode"
+            class="mt-segment">
+
+    <button [value]="m"
+            mt-segment-button
+            *ngFor="let m of modes">mode :{{ mode }} {{ m }}</button>
+
+</mt-segment> -->
+<!-- (click)="clicked($event)" -->

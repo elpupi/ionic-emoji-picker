@@ -1,0 +1,64 @@
+<!-- <ion-item>
+
+    <ion-label>
+        <ion-icon name="logo-android"></ion-icon>
+        Platform
+    </ion-label>
+ -->
+<!--  <ion-icon name="apple"
+                              item-start></ion-icon> -->
+
+<!--  <ion-label>Platform</ion-label> -->
+<!-- placeholder="platform" -->
+<!-- <ion-select [(ngModel)]="platform"> -->
+<!--     <ion-select item-content
+                [(ngModel)]="platform">
+        <ion-option *ngFor="let platform of platforms"
+                    [value]="platform">{{ platform }}</ion-option>
+    </ion-select>
+</ion-item> -->
+
+<!-- <ion-list-header text-left
+                 class="title">
+    <ion-label class="title__label">
+        <ion-icon name="logo-android"></ion-icon>
+        Platform
+    </ion-label>
+</ion-list-header>
+ -->
+
+<!--
+
+<ion-item class="question">
+
+    <ion-select item-content
+                [(ngModel)]="platform">
+        <ion-option *ngFor="let platform of platforms"
+                    [value]="platform">{{ platform }}</ion-option>
+    </ion-select>
+
+</ion-item>
+
+
+<div class="title">
+
+    <ion-icon class="title__icon"
+              name="wifi"
+              item-start>
+    </ion-icon>
+    <span class="title__text">Mode</span>
+</div>
+ -->
+<!-- <div class="select">
+    <ion-select item-content
+                [(ngModel)]="platform">
+        <ion-option *ngFor="let platform of platforms"
+                    [value]="platform">{{ platform }}</ion-option>
+    </ion-select>
+</div> -->
+<ion-select class="select"
+            item-content
+            [(ngModel)]="platform">
+    <ion-option *ngFor="let platform of platforms"
+                [value]="platform">{{ platform }}</ion-option>
+</ion-select>

@@ -11,10 +11,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import { EmojiPickerModule, EmojiPickerConfig } from '@modules/emoji-pciker/emoji-picker.module';
-import { EmojiOptionConfig } from '@services/emoji/emoji-option-config.service';
+import { EmojiPickerModule, EmojiPickerConfig } from '@modules/emoji-picker/emoji-picker.module';
+import { EmojiJsonConfig } from '@services/emoji/emoji-json-config.service';
 import { EmojiOption } from '@services/emoji/emoji-option.service';
 
+
+import { ConfigModule } from '@modules/config/config.module';
 /* const EmojisURLProvider = {
     provide: EmojiURL,
     useFactory: () => new EmojiURL(EmojiURL.generateURL`assets/emojis-${'platform'}.json`, { platform: 'apple' }),
@@ -32,16 +34,29 @@ import { EmojiOption } from '@services/emoji/emoji-option.service';
         IonicModule.forRoot(MyApp),
         EmojiPickerModule.forRoot({
             emojiSheetConfig: {
-                url: 'assets/sprite/apple/sheets/32.png',
-                sheet: true
-            },
-            emojiURLConfig: {
-                online: {
-                    urlGenerator: EmojiOption.generateURL`assets/json/emojis-${'platform'}.json`,
-                    parameters: { platform: 'apple' }
+                // url: 'assets/sprite/apple/sheets/32.png',
+                parameters: {
+                    resolution: 32,
+                    sheet: {
+                        use: true,
+                        margin: 2,
+                        type: 'raster',
+                        dimension: {
+                            width: 1768,
+                            height: 1768
+                        }
+                    }
                 }
-            }
-        } as EmojiPickerConfig)
+            },
+            emojiJsonConfig: {
+                /*  online: {
+                     urlGenerator: EmojiOption.generateURL`assets/json/emojis-${'platform'}.json`,
+                     parameters: { platform: 'apple' }
+                 } */
+            },
+            categoryConfig: {}
+        } as EmojiPickerConfig),
+        ConfigModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [

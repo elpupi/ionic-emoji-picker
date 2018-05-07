@@ -1,0 +1,32 @@
+<!-- <div class="emoji-list"
+     #list> -->
+
+<!-- *ngIf="emojisByCategory !== undefined; else listSkeleton" -->
+
+<div class="category"
+     *ngFor="let category of filteredCategories">
+    <!-- | notEmptyEmojiCategory -->
+    <mt-emoji-picker-category [mtCategory]="category"></mt-emoji-picker-category>
+
+    <div class="category__buttons"
+         [style.width.px]="buttonsWidth">
+        <!-- <div class="emoji-buttons__content"> -->
+
+        <mt-emoji-picker-button *ngFor="let emoji of emojisByCategory[category.category]"
+                                (mtSelection)="emojiSelected($event)"
+                                [mtEmoji]="emoji"
+                                [style.margin.px]="marginButton">
+        </mt-emoji-picker-button>
+        <!-- <div class="emoji-last"></div> -->
+        <!--  </div> -->
+
+
+    </div>
+
+</div>
+
+<!-- </div> -->
+
+<ng-template #listSkeleton>
+
+</ng-template>

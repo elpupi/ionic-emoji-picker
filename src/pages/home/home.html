@@ -1,27 +1,31 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Ionic Blank
+            Emoji Demo
         </ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-    <!--  <p>selectEvent: {{ selectEvent }}</p>
-    <p>caretEvent: {{ caretEvent }}</p> -->
+    <ion-grid fixed>
+        <ion-row justify-content-center>
+            <ion-col>
 
-    <!-- [textContent]="content" -->
-    <!-- (input)="content = $event.target.textContent" -->
-    <!--     <div class="emoji-content-editable"
-         (mtEmojiPickerCaretEmitter)="handleCurrentCaret($event)"
-         (input)="content = $event.target.innerHTML"
-         [innerHTML]="content"
-         contenteditable="true"></div> -->
+                <config></config>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+
     <p class="emoji-content-editable"
        [innerHTML]="content"></p>
 
-    <mt-emoji-picker [mtInputAutofocus]="true"
+    <mt-emoji-picker [mtDimension]="dimension"
+                     [mtInputAutofocus]="true"
                      (mtEmojiSelect)="emojiSelectedHandler($event)"
                      (mtPickerClose)="pickerClosedHandler($event)"></mt-emoji-picker>
 
