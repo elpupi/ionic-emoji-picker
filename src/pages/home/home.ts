@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChild } from '@angular/core';
 import { CaretEvent } from '@modules/emoji-picker/lib/caret-event';
 import { EmojiData } from '@model/emoji/emoji-data';
 import { Dimension } from '@model/dimension/dimension';
 import { Platform, PlatformString } from '@model/platform';
-
+import { EmojiPicker } from '@components/emoji-picker/emoji-picker';
 
 @Component({
     selector: 'page-home',
-    templateUrl: 'home.html'
+    templateUrl: 'home.html',
+    host: {
+        '(window:resize)': 'onWindowResize($event)'
+    }
 })
 export class HomePage {
     public content = ''; // 'Type letters...';
     public selectEvent = '';
     public caretEvent = '';
-    public dimension: Dimension = { width: 600, height: 500 };
+    public dimension: Dimension = { width: 1, height: 700 };
     public resolution = 32;
 
     public platform: string;
@@ -21,8 +24,13 @@ export class HomePage {
 
     private lastCaretEvent: CaretEvent;
 
+    @ViewChild(EmojiPicker) emojiPicker: EmojiPicker;
+
     constructor() { }
 
+    onWindowResize() {
+        this.emojiPicker.dimension = { width: 1, height: 700 };
+    }
 
     emojiSelectedHandler(emoji: EmojiData) {
         // console.log('emoji selected -> ', event);

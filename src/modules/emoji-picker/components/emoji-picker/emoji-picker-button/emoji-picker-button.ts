@@ -5,6 +5,7 @@ import { EmojiSheet } from '@services/sheet/emoji-sheet.service';
 import { Sheet } from '@services/sheet/emoji-sheet-config.service';
 import { Css } from '@services/css/css.service';
 import { CodeToUnicodePipe } from '@pipes/code-to-unicode.pipe';
+import { ProxyTypeObserver } from '@proxy/proxy';
 
 
 
@@ -25,7 +26,7 @@ export class EmojiPickerButton {
     public ngStyle: { [cssProperty: string]: string | number } = {};
     public ngClass: { [className: string]: boolean };
     public innerHTML = '';
-    private sheet: Sheet;
+    private sheet: ProxyTypeObserver<Sheet>;
 
 
     constructor(emojiSheet: EmojiSheet, private css: Css, private codeToUnicode: CodeToUnicodePipe) {
@@ -37,23 +38,23 @@ export class EmojiPickerButton {
     }
 
     public ngOnInit() {
-        if (this.sheet.use && !this.isSkeleton()) {
+        if (this.sheet.use.$$ && !this.isSkeleton()) {
             /* this.ngStyle = {
                 backgroundImage: `url(${this.emojiSheet.url})`,
                 backgroundPositionX: `${-this.emoji.sheetX * (this.emojiSheet.resolution - 7)}px`,
                 backgroundPositionY: `${-this.emoji.sheetY * (this.emojiSheet.resolution - 7)}px`
             }; */
-            this.ngStyle = this.css.content.list.buttons.button.style(this.emoji);
+            this.ngStyle = this.css.config.content.list.buttons.button.$$.style(this.emoji);
         }
 
         this.ngClass = {
             'emoji-button--skeleton': this.isSkeleton(),
             'emoji-button': true,
-            'emoji-button--unicode': !this.sheet.use,
-            'emoji-button--sheet': this.sheet.use,
+            'emoji-button--unicode': !this.sheet.use.$$,
+            'emoji-button--sheet': this.sheet.use.$$,
         };
 
-        if (!this.sheet.use && !this.isSkeleton())
+        if (!this.sheet.use.$$ && !this.isSkeleton())
             this.innerHTML = this.codeToUnicode.transform(this.emoji.unified);
 
     }

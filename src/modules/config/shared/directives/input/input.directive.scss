@@ -1,19 +1,5 @@
-dimension {
-    .item {
-        padding: 0;
-    }
-
-    .input {
-        //  width: 100%;
-
-    }
-
-    // inside ion-input
-    .text-input {
-        text-align: right;
-        margin: 0;
-        width: 100%;
-    }
+[mt-input] {
+    padding: 0;
 
     /*
 
@@ -41,19 +27,24 @@ dimension {
         }
     }
 
+    // inside ion-input
     .text-input {
         font-size: 1rem;
+        text-align: right;
+        margin: 0 !important;
+        width: 100%;
 
         .desktop & {
             font-size: inherit;
         }
     }
 
-    .width {
-        margin-right: 2px;
+    .text-input-wp {
+        padding: 0;
+    }
 
-        .desktop & {
-            margin-right: 15px;
-        }
+    // ios check others
+    .input {
+        display: flex;
     }
 }

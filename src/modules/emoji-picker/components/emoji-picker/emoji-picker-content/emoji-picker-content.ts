@@ -20,14 +20,14 @@ import { HostBinding } from '@angular/core/src/metadata/directives';
 @Component({
     selector: 'mt-emoji-picker-content',
     templateUrl: 'emoji-picker-content.html',
-    host: {
-        '[style.width.px]': 'dimension.width',
-        '[style.height.px]': 'dimension.height'
-    }
+    /*   host: {
+          '[style.width.px]': 'dimension.width',
+          '[style.height.px]': 'dimension.height'
+      } */
 })
 export class EmojiPickerContent {
     @ViewChild(EmojiPickerList) emojiPickerList: EmojiPickerList;
-    @Input('mtDimension') dimension: Dimension;
+    //  @Input('mtDimension') dimension: Dimension = { width: undefined, height: undefined };
 
 
     @Output('mtEmojiSelection') emojiSelectionEmitter = new EventEmitter<EmojiData>();

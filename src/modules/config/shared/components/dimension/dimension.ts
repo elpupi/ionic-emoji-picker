@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewContainerRef, Host, Optional } from '@angular/core';
 import { ConfigParameters } from '@config/services/config-parameters.service';
+import { Config } from '@modules/config/shared/directives/config/config.directive';
 
 
 @Component({
-    selector: 'dimension',
-    templateUrl: 'dimension.html'
+    selector: 'mt-dimension',
+    templateUrl: 'dimension.html',
+    //   providers: [Config]
 })
 export class Dimension {
     public _width: number;
     public _height: number;
 
-    constructor(private configParameters: ConfigParameters) { }
+    constructor(private configParameters: ConfigParameters, @Host() @Optional() private configDirective: Config<any>, private el: ElementRef, private view: ViewContainerRef) { }
 
     ngOnInit() {
         this.configParameters.config.sheet.parameters.sheet.dimension.changed$.subscribe(({ prop, value }) => {

@@ -1,7 +1,7 @@
 import { Component, ViewChildren, Input, Output, QueryList, EventEmitter, ViewChild, ElementRef, HostBinding } from '@angular/core';
 
 import { FastDom } from '@modules/core/fastdom/fastdom';
-import { Css } from '@services/css/css.service';
+import { Css, Content } from '@services/css/css.service';
 
 import { EmojiPickerCategory } from '@components/emoji-picker/emoji-picker-category/emoji-picker-category';
 // import { ByCategory } from '@model/emoji/collections';
@@ -10,8 +10,8 @@ import { Categories, Category } from '@model/category/category';
 import { EmojiCollections } from '@model/emoji/emoji-collections';
 import { ByCategory } from '@model/emoji/collections';
 import { Dimension } from '@model/dimension/dimension';
-import { EmojiPickerButton } from '@modules/emoji-picker/components/emoji-picker/emoji-picker-button/emoji-picker-button';
-import { SkeletonList } from './skeleton-list';
+import { EmojiPickerButton } from '@components/emoji-picker/emoji-picker-button/emoji-picker-button';
+import { EmojiSheet } from '@services/sheet/emoji-sheet.service';
 
 
 
@@ -33,56 +33,60 @@ export class EmojiPickerList {
     @Output('mtEmojiSelection') emojiSelectionEmitter = new EventEmitter<EmojiData>();
 
     //  @Input('mtWidth') _width: number;
-    public width: number;
+    /*  public width: number;
 
-    private _dimension: Dimension;
-    public buttonWidth: number = 25 + 2 + 2; // padding
-    public marginButton = 2;
+     private _dimension: Dimension;
+     public buttonWidth: number = 25 + 2 + 2; // padding
+     public marginButton = 2; */
 
     public buttonsWidth: number;
 
     public isSkeleton: boolean = true;
 
-    private padding = 10;
-    @HostBinding('style.padding.px') paddingLeftRight = '0 10';
+    /* private padding = 10; */
+    @HostBinding('style.padding.px') paddingLeftRight: string; // = '0 10';
 
-    constructor(private css: Css, private fastdom: FastDom) {
-        this.css.content.list.padding = 10;
-        this.css.content.list.buttons.button.margin = 2;
+    constructor(private css: Css, private emojiSheet: EmojiSheet, private fastdom: FastDom) {
+        this.css.config.content.list.padding = 10;
+        this.css.config.content.list.padding.changed$.subscribe(({ prop, value }) => this.paddingLeftRight = `0 ${value}`);
+        this.css.config.content.list.buttons.button.margin = 2;
+        // this.buttonsWidth = this.css.config.content.list.buttons.$$.width();
+        this.css.config.content.changed$.subscribe(({ prop, value }: { prop: string; value: Content }) => {
+            this.buttonsWidth = value.list.buttons.width();
+        });
     }
 
     ngOnInit() {
-        this.buttonsWidth = this.css.content.list.buttons.width;
     }
 
-    private computeButtonsWidth() {
-        return this.buttonWidth * this.numberEmojisLine();
-    }
+    /*    private computeButtonsWidth() {
+           return this.buttonWidth * this.numberEmojisLine();
+       }
 
-    private numberEmojisLine() {
-        const listWidth = this.dimension.width - 2 * this.padding - 12 /*scrollbar*/;
-        const buttonWidth = this.buttonWidth;
+       private numberEmojisLine() {
+           const listWidth = this.dimension.width - 2 * this.padding - 12 ; //scrollbar
+           const buttonWidth = this.buttonWidth;
 
-        return Math.floor(listWidth / buttonWidth);
-    }
+           return Math.floor(listWidth / buttonWidth);
+       }
 
-    private numberSkeletonEmojis() {
-        const width = this.numberEmojisLine();
-        const height = this.dimension.height / this.buttonWidth; // larger that list content size
-        return Math.floor(width * height);
-    }
+       private numberSkeletonEmojis() {
+           const width = this.numberEmojisLine();
+           const height = this.dimension.height / this.buttonWidth; // larger that list content size
+           return Math.floor(width * height);
+       }
+    */
 
-
-    @Input('mtDimension') set dimension(dimension: Dimension) {
+    /* @Input('mtDimension') set dimension(dimension: Dimension) {
         this._dimension = dimension;
-        /* this.buttonsWidth = this.computeButtonsWidth(); */
-        /*  this.buttonsWidth = this.css.content.list.buttons.width; */
+        // this.buttonsWidth = this.computeButtonsWidth();
+        //  this.buttonsWidth = this.css.content.list.buttons.width;
     }
 
 
     get dimension() {
         return this._dimension;
-    }
+    } */
 
 
 
@@ -109,7 +113,7 @@ export class EmojiPickerList {
         // null bound means http and stuff not done
         if (!byCategory /* === null */ /* || 1 === 1 */) {
             this._emojisByCategory = {
-                skeleton: Array(this.css.content.list.buttons.numberEmojisContent()
+                skeleton: Array(this.css.config.content.list.buttons.$$.numberEmojisContent()
                 /* this.numberSkeletonEmojis() */).fill({ name: 'skeleton_emoji', unified: 'skeleton_emoji' })
             } as any;
         } else {

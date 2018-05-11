@@ -8,7 +8,9 @@
 
 <ion-content>
 
-    <ion-grid fixed>
+
+    <ion-grid class="config"
+              fixed>
         <ion-row justify-content-center>
             <ion-col>
 
@@ -20,13 +22,25 @@
 
 
 
+    <div class="emoji-picker">
+        <p class="emoji-content-editable"
+           [innerHTML]="content"></p>
 
-    <p class="emoji-content-editable"
-       [innerHTML]="content"></p>
+        <ion-grid class="emojis"
+                  fixed>
+            <ion-row justify-content-center>
+                <ion-col>
 
-    <mt-emoji-picker [mtDimension]="dimension"
-                     [mtInputAutofocus]="true"
-                     (mtEmojiSelect)="emojiSelectedHandler($event)"
-                     (mtPickerClose)="pickerClosedHandler($event)"></mt-emoji-picker>
+                    <mt-emoji-picker [mtDimension]="dimension"
+                                     [mtInputAutofocus]="true"
+                                     (mtEmojiSelect)="emojiSelectedHandler($event)"
+                                     (mtPickerClose)="pickerClosedHandler($event)"></mt-emoji-picker>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+    </div>
 
 </ion-content>

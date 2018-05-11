@@ -4,7 +4,7 @@ import { ConfigParameters } from '@config/services/config-parameters.service';
 
 
 @Component({
-    selector: 'mode',
+    selector: 'mt-mode',
     templateUrl: 'mode.html'
 })
 export class Mode {

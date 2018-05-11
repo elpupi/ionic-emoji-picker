@@ -1,0 +1,6 @@
+<ion-select class="select"
+            item-content
+            [(ngModel)]="platform">
+    <ion-option *ngFor="let platform of platforms"
+                [value]="platform">{{ platform }}</ion-option>
+</ion-select>

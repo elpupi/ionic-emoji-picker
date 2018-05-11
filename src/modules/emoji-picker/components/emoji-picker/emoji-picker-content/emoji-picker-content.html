@@ -5,9 +5,10 @@
                         (mtSearch)="searchHandler($event)"></mt-emoji-picker-header>
 
 <!-- [mtEmojisCategories]="categories" -->
-<mt-emoji-picker-list [mtDimension]="dimension"
-                      [mtEmojisByCategory]="filteredByCategory"
+<mt-emoji-picker-list [mtEmojisByCategory]="filteredByCategory"
                       [mtEmojisCategories]="(emoji.categories$ | async)"
                       (mtEmojiSelection)="emojiSelectedHandler($event)"></mt-emoji-picker-list>
+
+<!--  [mtDimension]="dimension" -->
 
 <mt-emoji-picker-footer [mtEmoji]="selected"></mt-emoji-picker-footer>

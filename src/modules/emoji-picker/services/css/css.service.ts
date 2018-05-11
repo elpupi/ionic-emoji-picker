@@ -5,19 +5,22 @@ import { Dimension } from '@model/dimension/dimension';
 import { EmojiData } from '@model/emoji/emoji-data';
 import { Util } from '@util/util';
 
+import { Proxy, ProxyType, ProxyTypeObserver } from '@proxy/proxy';
+import { Platform } from 'ionic-angular';
+
 
 export class Content {
-    width: number; // to be set by the app
-    height: number; // to be set by the app
-    list = new List(this);
+    width: number = undefined; // to be set by the app
+    height: number = undefined; // to be set by the app
+    list?: List = new List(this);
 }
 
 
 export class List {
-    padding: number; // to be set by the app
+    padding: number = undefined; // to be set by the app
     buttons = new Buttons(this);
 
-    constructor(public content: Content) { }
+    constructor(public content?: Content) { }
 }
 
 
@@ -26,36 +29,37 @@ export class List {
 export class Buttons {
     button = new Button();
 
-    constructor(public list: List) { }
+    constructor(public list?: List) { }
 
     private buttonWidth() {
-        return this.button.size + this.button.margin;
+        return this.button.size + 2 * this.button.margin;
     }
 
-    public numberEmojisLine() {
-        const listWidth = this.list.content.width - 2 * this.list.padding - 12 /*scrollbar*/;
+    public numberEmojisPerLine() {
+        const scrollbar = Css.platform.is('core') ? 12 : 0;
+        const listWidth = this.list.content.width - 2 * this.list.padding - scrollbar;
         return Math.floor(listWidth / this.buttonWidth());
     }
 
     public numberEmojisContent() {
-        const width = this.numberEmojisLine();
-        const height = this.list.content.height / this.buttonWidth(); // larger that list content size
-        return Math.floor(width * height);
+        const nbPerLine = this.numberEmojisPerLine();
+        const nbPerColumn = Math.floor(this.list.content.height / this.buttonWidth());
+        return nbPerLine * nbPerColumn;
     }
 
-    public get width() {
-        return this.buttonWidth() * this.numberEmojisLine();
+    public width() {
+        return this.buttonWidth() * this.numberEmojisPerLine();
     }
 }
 
 
 
 export class Button {
-    margin: number; // to be set by the app
-    sizeRequired: number; // to be set by the config
-    private resolution: number; // = Css.emojiSheet.config.parameters.resolution.$$; // to be set by the config
-    private sheetMargin: number; // = Css.emojiSheet.config.parameters.sheet.margin.$$; // to be set by the config
-    private sheetDimension: Dimension; // = Css.emojiSheet.config.parameters.sheet.dimension.$$; // to be set by the config
+    margin: number = undefined; // to be set by the app
+    sizeRequired: number = undefined; // to be set by the config
+    private resolution: number = undefined; // = Css.emojiSheet.config.parameters.resolution.$$; // to be set by the config
+    private sheetMargin: number = undefined; // = Css.emojiSheet.config.parameters.sheet.margin.$$; // to be set by the config
+    private sheetDimension: Dimension = undefined; // = Css.emojiSheet.config.parameters.sheet.dimension.$$; // to be set by the config
 
     constructor() {
         const parameters = Css.emojiSheet.config.parameters;
@@ -105,7 +109,8 @@ export class Button {
             'backgroundSize.px': this.sheetDimension.width * this.size / (this.resolution + this.sheetMargin),
             backgroundImage: `url(${Css.emojiSheet.url})`,
             'backgroundPositionX.px': -emoji.sheetX * (this.size),
-            'backgroundPositionY.px': -emoji.sheetY * (this.size)
+            'backgroundPositionY.px': -emoji.sheetY * (this.size),
+            'margin.px': this.margin
         };
     }
 
@@ -117,21 +122,25 @@ export class Button {
 
 @Injectable()
 export class Css {
-    private _content: Content;
+    config: { content: ProxyTypeObserver<Content> };
     static emojiSheet: EmojiSheet;
+    static platform: Platform;
 
-    constructor(emojiSheet: EmojiSheet) {
+
+    constructor(emojiSheet: EmojiSheet, platform: Platform) {
         Css.emojiSheet = emojiSheet;
-        this._content = new Content();
+        Css.platform = platform;
+
+        this.config = Proxy.createObserver({ content: new Content() });
     }
 
 
-    setContent(dimension: Dimension) {
-        Util.assignRecursive(this._content, dimension);
-        // this.dimensions$.next(dimension);
-    }
+    /*  setContent(dimension: Dimension) {
+         Util.assignRecursive(this._content, dimension);
+         // this.dimensions$.next(dimension);
+     }
 
     get content() {
         return this._content;
-    }
+    } */
 }

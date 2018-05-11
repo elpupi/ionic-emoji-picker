@@ -3,7 +3,10 @@ page-home {
         background: #eee;
         border: 1px solid #ccc;
         padding: 0.5rem 0.25rem;
+        text-align: center;
     }
 
-    text-align: center;
+    .emoji-picker {
+        margin-top: 50px;
+    }
 }

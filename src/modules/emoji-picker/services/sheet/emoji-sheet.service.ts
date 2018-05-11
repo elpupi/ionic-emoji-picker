@@ -24,7 +24,7 @@ export class EmojiSheet {
     get url() {
         const type = this.config.parameters.sheet.type.$$;
         const urlFunctor = this.config[type].$$;
-        return urlFunctor(this.config.parameters);
+        return urlFunctor(this.config.parameters.$$);
     }
 
 

@@ -4,7 +4,7 @@ import { ConfigParameters } from '@config/services/config-parameters.service';
 
 
 @Component({
-    selector: 'platform',
+    selector: 'mt-platform',
     templateUrl: 'platform.html'
 })
 export class Platform {
