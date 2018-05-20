@@ -1,19 +1,7 @@
-<ion-item *ngIf="title !== undefined; else noTitle"
-          mt-input
+<ion-item mt-input
           class="dimension__width">
-    <ion-label>{{ title }}</ion-label>
+    <ion-label *ngIf="title !== undefined">{{ title }}</ion-label>
 
-    <ng-container *ngTemplateOutlet="input"></ng-container>
-</ion-item>
-
-
-<ng-template #noTitle>
-    <ng-container *ngTemplateOutlet="input"></ng-container>
-</ng-template>
-
-
-
-<ng-template #input>
     <ion-input type="number"
                [min]="min"
                [step]="setp"
@@ -21,4 +9,4 @@
                [ngModel]="model.model"
                (ngModelChange)="modelChanged($event)">
     </ion-input>
-</ng-template>
+</ion-item>

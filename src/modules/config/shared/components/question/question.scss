@@ -11,7 +11,7 @@ mt-question {
         margin-left: 20px;
     }
 
-    [mt-question-element] {
+    .question__content {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -23,8 +23,25 @@ mt-question {
         max-width: 60%;
     }
 
-    .desktop & [mt-question-element] {
+    /* [mt-question-element]  */
+    .desktop & .question__content {
         max-width: 80%;
+    }
+
+    [mt-question-element] {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100%;
+    }
+
+    [mt-question-element] + [mt-question-element] {
+        margin-left: 2px;
+
+        .desktop & {
+            margin-left: 15px;
+        }
     }
 
     /* .question__element {
@@ -35,3 +52,11 @@ mt-question {
 mt-question + mt-question {
     margin-top: 15px;
 }
+
+/* .dimension__width {
+    margin-right: 2px;
+
+    .desktop & {
+        margin-right: 15px;
+    }
+} */

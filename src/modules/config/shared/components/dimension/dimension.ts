@@ -23,8 +23,8 @@ export class Dimension {
 
 
 
-    set width(width: number) {
-        this.configParameters.config.sheet.parameters.sheet.dimension.width = width;
+    set width(width: number /* it's string. TS doesn't allow to change type in setter */) {
+        this.configParameters.config.sheet.parameters.sheet.dimension.width = parseInt(width as any, 10);
     }
 
     get width() {
@@ -33,7 +33,7 @@ export class Dimension {
 
 
     set height(height: number) {
-        this.configParameters.config.sheet.parameters.sheet.dimension.height = height;
+        this.configParameters.config.sheet.parameters.sheet.dimension.height = parseInt(height as any, 10);
     }
 
     get height() {

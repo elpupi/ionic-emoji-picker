@@ -1,18 +1,32 @@
 <ion-list no-border>
 
-    <mt-question mtIconName="wifi"
+    <!--  <mt-question mtIconName="wifi"
                  mtTitle="Mode">
 
         <mt-mode mt-question-element></mt-mode>
     </mt-question>
+ -->
+    <mt-question mtIconName="wifi"
+                 mtTitle="Mode">
 
-
-    <mt-question mtIconName="logo-android"
+        <mt-segment mt-question-element
+                    [model]="modelFactory.create(emoji.mode)"
+                    [segments]="['online', 'offline']"> </mt-segment>
+    </mt-question>
+    <!-- <mt-question mtIconName="logo-android"
                  mtTitle="Platform">
 
         <mt-platform mt-question-element
                      *ngIf="mode==='online'"></mt-platform>
-    </mt-question>
+    </mt-question> -->
+    <mt-question *ngIf="mode==='online'"
+                 mtIconName="logo-android"
+                 mtTitle="Platform">
 
+        <mt-select mt-question-element
+                   [model]="modelFactory.create(emoji.parameters.platform)"
+                   [options]="platforms">
+        </mt-select>
+    </mt-question>
 
 </ion-list>

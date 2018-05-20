@@ -1,14 +1,14 @@
 <ion-list no-border>
 
 
-    <mt-question mtIconName="play"
+    <!--  <mt-question mtIconName="play"
                  mtTitle="Sheet/Unicode">
 
         <use mt-question-element></use>
-    </mt-question>
+    </mt-question> -->
 
-    <mt-question mtIconName="logo-android"
-                 mtTitle="Platform">
+    <mt-question mtIconName="play"
+                 mtTitle="Sheet/Unicode">
 
         <mt-select mt-question-element
                    [model]="modelFactory.create(unicodeSheet)"
@@ -20,22 +20,29 @@
 
     <div *ngIf="use">
 
-        <mt-question mtIconName="logo-android"
+        <!-- <mt-question mtIconName="logo-android"
                      mtTitle="Platform">
 
             <mt-platform mt-question-element>
             </mt-platform>
         </mt-question>
+ -->
+        <mt-question mtIconName="logo-android"
+                     mtTitle="Platform">
+
+            <mt-select mt-question-element
+                       [model]="modelFactory.create(sheet.parameters.platform)"
+                       [options]="platforms">
+            </mt-select>
+        </mt-question>
 
 
-
-
-        <mt-question mtIconName="image"
+        <!-- <mt-question mtIconName="image"
                      mtTitle="Raster/SVG">
 
             <type mt-question-element> </type>
         </mt-question>
-
+ -->
 
         <mt-question mtIconName="image"
                      mtTitle="Raster/SVG">
@@ -47,29 +54,50 @@
 
 
 
-        <mt-question mtIconName="resize"
+        <!--  <mt-question mtIconName="resize"
                      mtTitle="Dimension">
 
             <mt-dimension mt-config="1234"
                           caca="17"
                           mt-question-element>
             </mt-dimension>
+        </mt-question> -->
+
+
+
+        <mt-question mtIconName="resize"
+                     mtTitle="Dimension">
+
+            <mt-input-numerical mtTitle="Width"
+                                [model]="modelFactory.create(sheet.parameters.sheet.dimension.width)"
+                                mt-question-element></mt-input-numerical>
+            <mt-input-numerical mtTitle="Height"
+                                [model]="modelFactory.create(sheet.parameters.sheet.dimension.height)"
+                                mt-question-element></mt-input-numerical>
         </mt-question>
 
+
+
+        <!-- <mt-question mtIconName="eye"
+                     mtTitle="Resolution">
+
+            <resolution mt-question-element></resolution>
+        </mt-question> -->
 
         <mt-question mtIconName="eye"
                      mtTitle="Resolution">
 
-            <resolution mt-question-element></resolution>
+            <mt-input-numerical [model]="modelFactory.create(sheet.parameters.resolution)"
+                                mt-question-element></mt-input-numerical>
         </mt-question>
 
 
-        <mt-question mtIconName="crop"
+        <!-- <mt-question mtIconName="crop"
                      mtTitle="Margin">
 
             <margin mt-question-element></margin>
         </mt-question>
-
+ -->
 
 
         <mt-question mtIconName="crop"

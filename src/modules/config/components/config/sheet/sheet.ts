@@ -6,6 +6,7 @@ import { ModelFactory } from '@modules/config/services/model-factory.service';
 import { ProxyTypeObserver } from '@proxy';
 import { EmojiSheetConfig } from '@modules/emoji-picker/services/sheet/emoji-sheet-config.service';
 
+import { Platform as EmojiPlatform } from '@model/platform';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class Sheet {
     // mode: Mode;
     sheet: ProxyTypeObserver<EmojiSheetConfig>;
     unicodeSheet: ProxyTypeObserver<'unicode' | 'sheet'>;
+    platforms = Object.keys(new EmojiPlatform());
+
 
     constructor(public configParameters: ConfigParameters, private modelFactory: ModelFactory) {
         this.sheet = configParameters.config.sheet;
@@ -31,6 +34,7 @@ export class Sheet {
             fromTo: v => v ? 'sheet' : 'unicode',
             toFrom: (v: 'unicode' | 'sheet') => v === 'sheet' ? true : false
         });
+
     }
 
 }

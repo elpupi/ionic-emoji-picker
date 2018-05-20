@@ -1,4 +1,6 @@
 <mt-title mt-light
           [mtIconName]="iconName">{{ title }}</mt-title>
 
-<ng-content select="[mt-question-element]"></ng-content>
+<div class="question__content">
+    <ng-content select="[mt-question-element]"></ng-content>
+</div>
