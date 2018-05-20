@@ -5,7 +5,7 @@ import { EmojiSheet } from '@services/sheet/emoji-sheet.service';
 import { Sheet } from '@services/sheet/emoji-sheet-config.service';
 import { Css } from '@services/css/css.service';
 import { CodeToUnicodePipe } from '@pipes/code-to-unicode.pipe';
-import { ProxyTypeObserver } from '@proxy/proxy';
+import { ProxyTypeObserver } from '@proxy';
 
 
 

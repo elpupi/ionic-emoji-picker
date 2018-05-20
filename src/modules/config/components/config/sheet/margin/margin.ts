@@ -21,8 +21,8 @@ export class Margin {
 
 
 
-    set margin(margin: number) {
-        this.configParameters.config.sheet.parameters.sheet.margin = margin;
+    set margin(margin: number /* TS error: it's a string */) {
+        this.configParameters.config.sheet.parameters.sheet.margin = parseInt(margin as any, 10);
     }
 
     get margin() {

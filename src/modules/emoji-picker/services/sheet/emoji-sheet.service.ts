@@ -4,7 +4,7 @@ import { EmojiSheetConfig, EmojiType, Parameters, Sheet } from './emoji-sheet-co
 import { PlatformString } from '@model/platform';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
-import { Proxy, ProxyType, ProxyTypeObserver } from '@proxy/proxy';
+import { ProxyObserver, ProxyTypeObserver } from '@proxy';
 
 
 @Injectable()
@@ -16,7 +16,7 @@ export class EmojiSheet {
     config: ProxyTypeObserver<EmojiSheetConfig>;
 
     constructor(config: EmojiSheetConfig) {
-        this.config = Proxy.createObserver(config);
+        this.config = ProxyObserver.create(config);
     }
 
 

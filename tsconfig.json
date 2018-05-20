@@ -15,6 +15,12 @@
         "target": "es5",
         "baseUrl": ".",
         "paths": {
+            "rxjs": [
+                "node_modules/rxjs"
+            ],
+            "rxjs/*": [
+                "node_modules/rxjs/*"
+            ],
             "@modules/*": [
                 "src/modules/*"
             ],
@@ -57,8 +63,8 @@
             "@core/*": [
                 "../FeaturesDetection/src/core/*"
             ],
-            "@proxy/*": [
-                "../Proxy/src/*"
+            "@proxy": [
+                "../Proxy/src"
             ]
         }
     },

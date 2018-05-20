@@ -26,7 +26,7 @@ export interface UrlConfig {
     vector?: UrlFunctor<Parameters, string>;
 }
 
-export type EmojiType = 'raster' | 'vector';
+export type EmojiType = 'raster' | 'svg';
 
 
 

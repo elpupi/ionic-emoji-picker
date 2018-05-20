@@ -14,6 +14,10 @@ import { Question, QuestionElement } from './components/question/question';
 import { Title } from './components/title/title';
 import { Category, CategoryElement } from './components/category/category';
 
+import { InputNumerical } from './components/input-numerical/input-numerical';
+import { Select } from './components/select/select';
+import { Segment } from './components/segment/segment';
+
 
 // directives
 
@@ -35,6 +39,11 @@ const exportedComponentsAndDirectives = [
     Title,
     Category,
     CategoryElement,
+
+
+    InputNumerical,
+    Select,
+    Segment,
 
     // directives
     Config,

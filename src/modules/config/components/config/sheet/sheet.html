@@ -7,6 +7,17 @@
         <use mt-question-element></use>
     </mt-question>
 
+    <mt-question mtIconName="logo-android"
+                 mtTitle="Platform">
+
+        <mt-select mt-question-element
+                   [model]="modelFactory.create(unicodeSheet)"
+                   [options]="['unicode', 'sheet']">
+        </mt-select>
+    </mt-question>
+
+
+
     <div *ngIf="use">
 
         <mt-question mtIconName="logo-android"
@@ -17,11 +28,23 @@
         </mt-question>
 
 
+
+
         <mt-question mtIconName="image"
                      mtTitle="Raster/SVG">
 
             <type mt-question-element> </type>
         </mt-question>
+
+
+        <mt-question mtIconName="image"
+                     mtTitle="Raster/SVG">
+
+            <mt-segment mt-question-element
+                        [model]="modelFactory.create(sheet.parameters.sheet.type)"
+                        [segments]="['raster', 'svg']"> </mt-segment>
+        </mt-question>
+
 
 
         <mt-question mtIconName="resize"
@@ -47,8 +70,17 @@
             <margin mt-question-element></margin>
         </mt-question>
 
-    </div>
 
+
+        <mt-question mtIconName="crop"
+                     mtTitle="Margin">
+
+            <mt-input-numerical [model]="modelFactory.create(sheet.parameters.sheet.margin)"
+                                mt-question-element></mt-input-numerical>
+        </mt-question>
+
+
+    </div>
 
     <!--  </ion-item-group>
  -->

@@ -4,7 +4,7 @@ import { EmojiSheetConfig } from '@modules/emoji-picker/services/sheet/emoji-she
 import { Content } from '@modules/emoji-picker/services/css/css.service';
 
 
-import { Proxy } from '@proxy/proxy';
+import { ProxyObserver } from '@proxy';
 
 
 /* class ConfigParameters {
@@ -15,10 +15,10 @@ import { Proxy } from '@proxy/proxy';
  */
 
 export class ConfigData {
-    sheet = Proxy.createObserver(new EmojiSheetConfig());
-    category = Proxy.createObserver(new CategoryConfig());
-    emoji = Proxy.createObserver(new EmojiJsonConfig());
-    css = Proxy.createObserver({ content: new Content() });
+    sheet = ProxyObserver.create(new EmojiSheetConfig());
+    category = ProxyObserver.create(new CategoryConfig());
+    emoji = ProxyObserver.create(new EmojiJsonConfig());
+    css = ProxyObserver.create({ content: new Content() });
 
     constructor() { }
 

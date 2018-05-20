@@ -22,9 +22,7 @@ import { ObjectOptionProperties, ObjectOption } from '@json-object-parser/object
 import { LiteralOption } from '@json-object-parser/litral/literal-option';
 
 
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import { of } from 'rxjs/observable/of';
+import { Observable, Observer, of } from 'rxjs';
 import { map, startWith, filter, mergeMap, tap } from 'rxjs/operators';
 
 

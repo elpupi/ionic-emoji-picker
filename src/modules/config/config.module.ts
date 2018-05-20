@@ -16,11 +16,16 @@ import { Config } from './components/config/config';
 
 import { QuestionMessage } from './services/question-message.service';
 import { ConfigParameters } from './services/config-parameters.service';
+import { ModelFactory } from './services/model-factory.service';
 
+// pipe
+
+import { ObservablePipePipe } from './pipes/observable-pipe.pipe';
 
 @NgModule({
     declarations: [
-        Config
+        Config,
+        ObservablePipePipe
     ],
     imports: [
         SharedModule,
@@ -33,7 +38,8 @@ import { ConfigParameters } from './services/config-parameters.service';
     ],
     providers: [
         //    QuestionMessage
-        ConfigParameters
+        ConfigParameters,
+        ModelFactory
     ]
 })
 export class ConfigModule { }

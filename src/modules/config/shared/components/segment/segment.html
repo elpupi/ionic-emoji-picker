@@ -1,0 +1,7 @@
+<ion-segment [ngModel]="model.model"
+             (ngModelChange)="modelChanged($event)">
+    <ion-segment-button [value]="s"
+                        *ngFor="let s of segments">
+        {{ s }}
+    </ion-segment-button>
+</ion-segment>

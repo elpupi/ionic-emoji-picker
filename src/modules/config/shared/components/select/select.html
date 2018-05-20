@@ -1,0 +1,7 @@
+<ion-select class="select"
+            item-content
+            [ngModel]="model.model"
+            (ngModelChange)="modelChanged($event)">
+    <ion-option *ngFor="let option of options"
+                [value]="option">{{ option }}</ion-option>
+</ion-select>

@@ -9,7 +9,11 @@
             "request": "launch",
             "name": "Launch Chrome",
             "url": "http://localhost:8100",
-            "webRoot": "${workspaceFolder}/www"
+            "webRoot": "${workspaceFolder}/www",
+            "skipFiles": [
+                "${workspaceRoot}/node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
         }
     ]
 }

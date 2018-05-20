@@ -6,7 +6,7 @@ import { Collections, ByCategory } from '@model/emoji/collections';
 import { EmojiData } from '@model/emoji/emoji-data';
 import { Categories } from '@model/category/category';
 
-import { Proxy, ProxyType, ProxyTypeObserver } from '@proxy/proxy';
+import { ProxyObserver, ProxyTypeObserver } from '@proxy';
 
 
 import { Observable } from 'rxjs/Observable';
@@ -22,7 +22,7 @@ export class Category {
     config: ProxyTypeObserver<CategoryConfig>;
 
     constructor(config: CategoryConfig) {
-        this.config = Proxy.createObserver(config);
+        this.config = ProxyObserver.create(config);
     }
 
 

@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { ProxyTypeObserver } from '@proxy/proxy';
+import { ProxyTypeObserver } from '@proxy';
 
 
 
@@ -9,7 +9,6 @@ export class Config<T> {
     @Input('caca') caca = 2;
 
 
-    constructor() {
-        1 === 1;
-    }
+    constructor() { }
+
 }

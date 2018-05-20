@@ -5,7 +5,7 @@ import { Dimension } from '@model/dimension/dimension';
 import { EmojiData } from '@model/emoji/emoji-data';
 import { Util } from '@util/util';
 
-import { Proxy, ProxyType, ProxyTypeObserver } from '@proxy/proxy';
+import { ProxyObserver, ProxyTypeObserver } from '@proxy';
 import { Platform } from 'ionic-angular';
 
 
@@ -131,7 +131,7 @@ export class Css {
         Css.emojiSheet = emojiSheet;
         Css.platform = platform;
 
-        this.config = Proxy.createObserver({ content: new Content() });
+        this.config = ProxyObserver.create({ content: new Content() });
     }
 
 
