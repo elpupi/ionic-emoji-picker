@@ -4,13 +4,13 @@ import { Mode } from '@services/emoji/emoji-json-config.service';
 import { ModelFactory } from '@modules/config/services/model-factory.service';
 
 import { ProxyTypeObserver } from '@proxy';
-import { EmojiSheetConfig } from '@modules/emoji-picker/services/sheet/emoji-sheet-config.service';
+import { EmojiSheetConfig } from '@config/model/config-data';
 
 import { Platform as EmojiPlatform } from '@model/platform';
 
 
 @Component({
-    selector: 'sheet',
+    selector: 'mt-sheet',
     templateUrl: 'sheet.html'
 })
 export class Sheet {
@@ -22,7 +22,7 @@ export class Sheet {
     platforms = Object.keys(new EmojiPlatform());
 
 
-    constructor(public configParameters: ConfigParameters, private modelFactory: ModelFactory) {
+    constructor(configParameters: ConfigParameters, private modelFactory: ModelFactory) {
         this.sheet = configParameters.config.sheet;
         this.sheet.parameters.sheet.use.changed$.subscribe(({ prop, value }) => {
             this.use = value;

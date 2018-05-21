@@ -1,7 +1,7 @@
 import { Component, ViewChildren, Input, Output, QueryList, EventEmitter, ViewChild, ElementRef, HostBinding } from '@angular/core';
 
 import { FastDom } from '@modules/core/fastdom/fastdom';
-import { Css, Content } from '@services/css/css.service';
+import { Css } from '@services/css/css.service';
 
 import { EmojiPickerCategory } from '@components/emoji-picker/emoji-picker-category/emoji-picker-category';
 // import { ByCategory } from '@model/emoji/collections';
@@ -12,6 +12,7 @@ import { ByCategory } from '@model/emoji/collections';
 import { Dimension } from '@model/dimension/dimension';
 import { EmojiPickerButton } from '@components/emoji-picker/emoji-picker-button/emoji-picker-button';
 import { EmojiSheet } from '@services/sheet/emoji-sheet.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -51,8 +52,8 @@ export class EmojiPickerList {
         this.css.config.content.list.padding.changed$.subscribe(({ prop, value }) => this.paddingLeftRight = `0 ${value}`);
         this.css.config.content.list.buttons.button.margin = 2;
         // this.buttonsWidth = this.css.config.content.list.buttons.$$.width();
-        this.css.config.content.changed$.subscribe(({ prop, value }: { prop: string; value: Content }) => {
-            this.buttonsWidth = value.list.buttons.width();
+        this.css.buttonsWidth.changed$.subscribe(({ prop, value }) => {
+            this.buttonsWidth = value;
         });
     }
 
@@ -111,12 +112,23 @@ export class EmojiPickerList {
     @Input('mtEmojisByCategory')
     public set emojisByCategory(byCategory: ByCategory) {
         // null bound means http and stuff not done
+        let skeletonSubscription: Subscription = undefined;
+
         if (!byCategory /* === null */ /* || 1 === 1 */) {
-            this._emojisByCategory = {
-                skeleton: Array(this.css.config.content.list.buttons.$$.numberEmojisContent()
-                /* this.numberSkeletonEmojis() */).fill({ name: 'skeleton_emoji', unified: 'skeleton_emoji' })
-            } as any;
+
+            skeletonSubscription = this.css.numberEmojisContent.changed$.subscribe(({ prop, value }) => {
+                this._emojisByCategory = {
+                    skeleton: Array(value).fill({ name: 'skeleton_emoji', unified: 'skeleton_emoji' })
+                };
+            });
+
+            /*  this._emojisByCategory = {
+                 skeleton: Array(this.css.config.content.list.buttons.$$.numberEmojisContent() // this.numberSkeletonEmojis()
+                 ).fill({ name: 'skeleton_emoji', unified: 'skeleton_emoji' })
+             } as any; */
         } else {
+            if (skeletonSubscription !== undefined) skeletonSubscription.unsubscribe();
+
             this._emojisByCategory = byCategory;
             this.filterNonEmptyCategories();
             this.isSkeleton = false;

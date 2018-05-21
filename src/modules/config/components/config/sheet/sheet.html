@@ -10,11 +10,12 @@
     <mt-question mtIconName="play"
                  mtTitle="Sheet/Unicode">
 
-        <mt-select mt-question-element
-                   [model]="modelFactory.create(unicodeSheet)"
-                   [options]="['unicode', 'sheet']">
-        </mt-select>
+        <mt-segment mt-question-element
+                    [model]="modelFactory.create(unicodeSheet)"
+                    [segments]="['unicode', 'sheet']">
+        </mt-segment>
     </mt-question>
+
 
 
 

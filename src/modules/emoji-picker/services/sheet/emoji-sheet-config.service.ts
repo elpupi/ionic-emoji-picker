@@ -33,7 +33,7 @@ export type EmojiType = 'raster' | 'svg';
 @Injectable()
 export class EmojiSheetConfig {
     raster?: UrlFunctor<Parameters, string> = (params: Parameters) => `assets/sprite/${params.platform}/sheets/${params.resolution}.png`;
-    vector?: UrlFunctor<Parameters, string> = (params: Parameters) => `assets/sprite/${params.platform}/sheets/${params.platform}.svg`;
+    svg?: UrlFunctor<Parameters, string> = (params: Parameters) => `assets/sprite/${params.platform}/sheets/${params.platform}.svg`;
 
     public parameters?: Parameters = {
         platform: 'apple',

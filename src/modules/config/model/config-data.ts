@@ -1,7 +1,9 @@
 import { EmojiJsonConfig } from '@modules/emoji-picker/services/emoji/emoji-json-config.service';
 import { CategoryConfig } from '@modules/emoji-picker/services/category/category-config.service';
 import { EmojiSheetConfig } from '@modules/emoji-picker/services/sheet/emoji-sheet-config.service';
-import { Content } from '@modules/emoji-picker/services/css/css.service';
+import { CssConfig } from '@modules/emoji-picker/services/css/css-config.service';
+
+export { EmojiJsonConfig, CategoryConfig, EmojiSheetConfig, CssConfig };
 
 
 import { ProxyObserver } from '@proxy';
@@ -18,7 +20,7 @@ export class ConfigData {
     sheet = ProxyObserver.create(new EmojiSheetConfig());
     category = ProxyObserver.create(new CategoryConfig());
     emoji = ProxyObserver.create(new EmojiJsonConfig());
-    css = ProxyObserver.create({ content: new Content() });
+    css = ProxyObserver.create(new CssConfig());
 
     constructor() { }
 

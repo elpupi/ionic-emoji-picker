@@ -1,18 +1,42 @@
 <ion-list no-border>
 
-    <!--     <mt-question mtIconName="wifi"
-                 mtTitle="Mode">
+    <!-- Content -->
+    <mt-question mtIconName="resize"
+                 mtTitle="Content">
 
-        <mode mt-question-element></mode>
+        <mt-input-numerical mtTitle="Width"
+                            [model]="modelFactory.create(css.content.width)"
+                            mt-question-element></mt-input-numerical>
+        <mt-input-numerical mtTitle="Height"
+                            [model]="modelFactory.create(css.content.height)"
+                            mt-question-element></mt-input-numerical>
     </mt-question>
 
 
-    <mt-question mtIconName="logo-android"
-                 mtTitle="Platform">
+    <!-- List -->
+    <mt-question mtIconName="eye"
+                 mtTitle="List Padding">
 
-        <mt-platform mt-question-element
-                  *ngIf="mode==='online'"></mt-platform>
+        <mt-input-numerical [model]="modelFactory.create(css.content.list.padding)"
+                            mt-question-element></mt-input-numerical>
     </mt-question>
- -->
+
+
+    <!-- Button -->
+    <mt-question mtIconName="crop"
+                 mtTitle="Button Margin">
+
+        <mt-input-numerical [model]="modelFactory.create(css.content.list.buttons.button.margin)"
+                            mt-question-element></mt-input-numerical>
+    </mt-question>
+
+    <mt-question mtIconName="crop"
+                 mtTitle="Button Padding">
+
+        <mt-input-numerical [model]="modelFactory.create(css.content.list.buttons.button.sizeRequired)"
+                            mt-question-element></mt-input-numerical>
+    </mt-question>
+
+
 
 </ion-list>

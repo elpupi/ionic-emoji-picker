@@ -4,12 +4,13 @@ import { Platform as EmojiPlatform } from '@model/platform';
 import { ConfigParameters } from '@config/services/config-parameters.service';
 import { ModelFactory } from '@modules/config/services/model-factory.service';
 
-import { EmojiJsonConfig } from '@modules/emoji-picker/services/emoji/emoji-json-config.service';
+import { EmojiJsonConfig } from '@config/model/config-data';
+
 import { ProxyTypeObserver } from '@proxy';
 
 
 @Component({
-    selector: 'json',
+    selector: 'mt-json',
     templateUrl: 'json.html'
 })
 export class Json {

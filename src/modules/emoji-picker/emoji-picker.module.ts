@@ -30,6 +30,7 @@ import { EmojiRequest } from '@services/emoji/emoji-request.service';
 import { Emoji } from '@services/emoji/emoji.service';
 import { Category } from '@services/category/category.service';
 import { CategoryConfig } from '@services/category/category-config.service';
+import { CssConfig } from '@services/css/css-config.service';
 import { Css } from '@services/css/css.service';
 
 // import { CommonModule } from '@angular/common';
@@ -78,6 +79,7 @@ export class EmojiPickerModule {
         EmojiOption,
         EmojiRequest,
         Emoji,
+        CssConfig,
         Css,
         CodeToUnicodePipe
     ];

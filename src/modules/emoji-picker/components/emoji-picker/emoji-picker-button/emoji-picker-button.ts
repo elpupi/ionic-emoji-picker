@@ -6,6 +6,8 @@ import { Sheet } from '@services/sheet/emoji-sheet-config.service';
 import { Css } from '@services/css/css.service';
 import { CodeToUnicodePipe } from '@pipes/code-to-unicode.pipe';
 import { ProxyTypeObserver } from '@proxy';
+import { combineLatest } from 'rxjs/internal/operators/combineLatest';
+import { ProxyObserver } from '../../../../../../../Proxy/src/proxy/proxy-observer';
 
 
 
@@ -15,7 +17,8 @@ import { ProxyTypeObserver } from '@proxy';
 })
 export class EmojiPickerButton {
 
-    @Input('mtEmoji') emoji: EmojiData;
+    // @Input('mtEmoji') emoji: EmojiData;
+    private _emoji: EmojiData;
     @Input('mtDataToEmit') dataToEmit;
     @Input('mtOptions') options;
     @Input('mtFitzpatrick') fitzpatrick;
@@ -27,35 +30,65 @@ export class EmojiPickerButton {
     public ngClass: { [className: string]: boolean };
     public innerHTML = '';
     private sheet: ProxyTypeObserver<Sheet>;
+    private _isSkeleton: ProxyTypeObserver<boolean>;
 
 
     constructor(emojiSheet: EmojiSheet, private css: Css, private codeToUnicode: CodeToUnicodePipe) {
         this.sheet = emojiSheet.config.parameters.sheet;
+        this._isSkeleton = ProxyObserver.create();
     }
 
-    public isSkeleton() {
-        return this.emoji.unified === 'skeleton_emoji';
+    @Input('mtEmoji') set emoji(emoji: EmojiData) {
+        this._isSkeleton.$(emoji.unified === 'skeleton_emoji');
+        this._emoji = emoji;
     }
+
+    get emoji() {
+        return this._emoji;
+    }
+
+
+    private get isSkeleton() {
+        return this._isSkeleton; // this.emoji.unified === 'skeleton_emoji';
+    }
+
 
     public ngOnInit() {
-        if (this.sheet.use.$$ && !this.isSkeleton()) {
-            /* this.ngStyle = {
-                backgroundImage: `url(${this.emojiSheet.url})`,
-                backgroundPositionX: `${-this.emoji.sheetX * (this.emojiSheet.resolution - 7)}px`,
-                backgroundPositionY: `${-this.emoji.sheetY * (this.emojiSheet.resolution - 7)}px`
-            }; */
-            this.ngStyle = this.css.config.content.list.buttons.button.$$.style(this.emoji);
-        }
+        this.sheet.use.changed$.pipe(
+            combineLatest(this.isSkeleton.changed$)
+        )
+            .subscribe(([use, isSkeleton]) => {
+                if (use.value) {
+                    if (!isSkeleton.value)
+                        this.css.buttonStyle.changed$.subscribe(buttonStyle => this.ngStyle = buttonStyle.value(this.emoji));
 
-        this.ngClass = {
-            'emoji-button--skeleton': this.isSkeleton(),
-            'emoji-button': true,
-            'emoji-button--unicode': !this.sheet.use.$$,
-            'emoji-button--sheet': this.sheet.use.$$,
-        };
+                } else {
+                    if (!isSkeleton.value)
+                        this.innerHTML = this.codeToUnicode.transform(this.emoji.unified);
+                }
 
-        if (!this.sheet.use.$$ && !this.isSkeleton())
-            this.innerHTML = this.codeToUnicode.transform(this.emoji.unified);
+                this.ngClass = {
+                    'emoji-button--skeleton': isSkeleton.value,
+                    'emoji-button': true,
+                    'emoji-button--unicode': !use.value,
+                    'emoji-button--sheet': use.value,
+                };
+            });
+
+
+        /* if (this.sheet.use.$$ && !this.isSkeleton()) {
+            this.css.buttonStyle.changed$.subscribe(buttonStyle => this.ngStyle = buttonStyle.value(this.emoji));
+        } */
+
+        /*  this.ngClass = {
+             'emoji-button--skeleton': this.isSkeleton(),
+             'emoji-button': true,
+             'emoji-button--unicode': !this.sheet.use.$$,
+             'emoji-button--sheet': this.sheet.use.$$,
+         };
+  */
+        /*    if (!this.sheet.use.$$ && !this.isSkeleton())
+               this.innerHTML = this.codeToUnicode.transform(this.emoji.unified); */
 
     }
 
@@ -64,7 +97,7 @@ export class EmojiPickerButton {
         // this.selectionEmitter.emit(this.dataToEmit || this.emoji);
         /*  const event = this.dataToEmit || this.emoji;
          this.selectionEmitter.emit(EmojiEvent.fromArray(event)); */
-        if (!this.isSkeleton())
+        if (!this.isSkeleton.$$)
             this.selectionEmitter.emit(this.emoji);
     }
 }

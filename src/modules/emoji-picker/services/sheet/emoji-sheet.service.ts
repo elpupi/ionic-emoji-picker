@@ -15,16 +15,32 @@ export class EmojiSheet {
 
     config: ProxyTypeObserver<EmojiSheetConfig>;
 
+    _url: ProxyTypeObserver<string>;
+
+
     constructor(config: EmojiSheetConfig) {
         this.config = ProxyObserver.create(config);
+        this.createUrl();
     }
 
 
+    private createUrl() {
+        this._url = ProxyObserver.create();
 
-    get url() {
+        this.config.parameters.changed$.subscribe(({ prop, value }) => {
+            this._url.$(this.urlFunctor());
+        });
+    }
+
+    private urlFunctor() {
         const type = this.config.parameters.sheet.type.$$;
         const urlFunctor = this.config[type].$$;
         return urlFunctor(this.config.parameters.$$);
+    }
+
+
+    get url() {
+        return this._url;
     }
 
 
