@@ -61,10 +61,14 @@ export class EmojiPickerButton {
                 if (use.value) {
                     if (!isSkeleton.value)
                         this.css.buttonStyle.changed$.subscribe(buttonStyle => this.ngStyle = buttonStyle.value(this.emoji));
+                    else
+                        this.ngStyle = { 'margin.px': this.css.config.content.list.buttons.button.margin.$$ };
 
                 } else {
                     if (!isSkeleton.value)
                         this.innerHTML = this.codeToUnicode.transform(this.emoji.unified);
+                    else
+                        this.innerHTML = '';
                 }
 
                 this.ngClass = {

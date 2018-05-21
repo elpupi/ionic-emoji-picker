@@ -30,6 +30,7 @@ export class EmojiPickerList {
     private _emojisByCategory: ByCategory;
     private _categories: Categories;
     public filteredCategories: Categories;
+    private forceSkeleton = false;
 
     @Output('mtEmojiSelection') emojiSelectionEmitter = new EventEmitter<EmojiData>();
 
@@ -94,7 +95,7 @@ export class EmojiPickerList {
     @Input('mtEmojisCategories')
     set categories(categories: Categories) {
         // null bound means http and stuff not done
-        if (!categories /* === null */ /* || 1 ===1 */) {
+        if (!categories || this.forceSkeleton/* === null */ /* || 1 ===1 */) {
             this._categories = [{ category: 'skeleton' }] as any;
             this.filteredCategories = this._categories;
         } else {
@@ -114,7 +115,7 @@ export class EmojiPickerList {
         // null bound means http and stuff not done
         let skeletonSubscription: Subscription = undefined;
 
-        if (!byCategory /* === null */ /* || 1 === 1 */) {
+        if (!byCategory || this.forceSkeleton /* === null */ /* || 1 === 1 */) {
 
             skeletonSubscription = this.css.numberEmojisContent.changed$.subscribe(({ prop, value }) => {
                 this._emojisByCategory = {
