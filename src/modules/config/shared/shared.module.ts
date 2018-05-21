@@ -6,8 +6,8 @@ import { IonicModule } from 'ionic-angular';
 
 
 // components
-import { Platform } from './components/platform/platform';
-import { Dimension } from './components/dimension/dimension';
+// import { Platform } from './components/platform/platform';
+// import { Dimension } from './components/dimension/dimension';
 
 // import { Segment, SegmentButton } from './components/segment/segment';
 import { Question, QuestionElement } from './components/question/question';
@@ -21,14 +21,14 @@ import { Segment } from './components/segment/segment';
 
 // directives
 
-import { Input } from './directives/input/input.directive';
-import { Config } from './directives/config/config.directive';
+// import { Input } from './directives/input/input.directive';
+// import { Config } from './directives/config/config.directive';
 
 
 const exportedComponentsAndDirectives = [
     // common components
-    Platform,
-    Dimension,
+    // Platform,
+    // Dimension,
 
 
     // tools
@@ -46,8 +46,8 @@ const exportedComponentsAndDirectives = [
     Segment,
 
     // directives
-    Config,
-    Input,
+    // Config,
+    // Input,
 ];
 
 
