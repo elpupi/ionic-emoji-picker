@@ -17,10 +17,10 @@ import { ProxyObserver } from '@proxy';
  */
 
 export class ConfigData {
-    sheet = ProxyObserver.create(new EmojiSheetConfig());
-    category = ProxyObserver.create(new CategoryConfig());
-    emoji = ProxyObserver.create(new EmojiJsonConfig());
-    css = ProxyObserver.create(new CssConfig());
+    sheet = undefined; // ProxyObserver.create(new EmojiSheetConfig());
+    category = undefined; //  ProxyObserver.create(new CategoryConfig());
+    emoji = undefined; //  ProxyObserver.create(new EmojiJsonConfig());
+    css = undefined; // ProxyObserver.create(new CssConfig());
 
     constructor() { }
 

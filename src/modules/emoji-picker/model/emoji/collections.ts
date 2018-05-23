@@ -2,7 +2,8 @@ import { EmojiData } from './emoji-data';
 import { Categories } from '@model/category/category';
 
 // tslint:disable-next-line:import-name
-import Fuse from 'fuse.js/src/index';
+// import Fuse from 'fuse.js/src/index';
+const Fuse = require('fuse.js/src/index');
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 

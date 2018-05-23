@@ -68,45 +68,56 @@ mt-emoji-picker-button {
     display: inline-block;
 
     $button-size: 25px;
+    $button-focus-color: rgb(182, 182, 182);
 
     height: $button-size; // for flex-wrap. Otherwise it changes the height
 
     .emoji-button {
+        border: none;
         padding: 0;
         background: none;
         box-sizing: content-box;
         display: inline-block;
         outline: none;
         cursor: pointer;
-        width: 25px;
-        height: 25px;
+
+        // width: 25px;
+        // height: 25px;
         border-radius: $ep-border-radius;
 
         &:hover, &:focus {
-            background: #F1F1F1;
-            border-color: #F1F1F1;
+            background: rgb(216, 213, 213);
+            border-color: $button-focus-color; // #F1F1F1;
+
         }
     }
 
     .emoji-button.emoji-button--unicode {
-        border: 5px solid transparent;
+        //  border: 5px solid transparent;
         font-size: $ep-emoji-width - 10px;
-        line-height: 1.1;
+
+        // line-height: 1.1;
         transition: all 0.2s;
+        background-color: rgba(242, 242, 242, 0.8);
+
+        &:hover, &:focus {
+            background: $button-focus-color;
+            border-color: $button-focus-color;
+        }
     }
 
     .emoji-button.emoji-button--sheet {
-        border: none;
         background-repeat: no-repeat;
         line-height: 0;
 
         /** box shaddowing the edges until I find a better sprite sheet */
         box-shadow: 0 0 1px 1px white inset;
-        background-size: 1768 * $button-size / (32 + 2);
+
+        // background-size: 1768 * $button-size / (32 + 2);
 
         //
         &:hover, &:focus {
-            box-shadow: 0 0 1px 1px #F1F1F1 inset;
+            box-shadow: 0 0 1px 1px $button-focus-color inset;
         }
     }
 

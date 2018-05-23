@@ -1,6 +1,5 @@
 
 import { Returnable } from '@json-object-parser/returnable';
-import { EmojiData } from '@model/emoji/emoji-data';
 import { ByCategory, Collections } from './collections';
 
 

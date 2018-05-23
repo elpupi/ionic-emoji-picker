@@ -4,15 +4,18 @@
 <!-- *ngIf="emojisByCategory !== undefined; else listSkeleton" -->
 
 <div class="category"
-     *ngFor="let category of filteredCategories">
+     *ngFor="let category of filteredCategories;trackBy: categoryTrackBy">
+
+
     <!-- | notEmptyEmojiCategory -->
     <mt-emoji-picker-category [mtCategory]="category"></mt-emoji-picker-category>
 
     <div class="category__buttons"
+         [class.unicode]="!useSheet"
          [style.width.px]="buttonsWidth">
         <!-- <div class="emoji-buttons__content"> -->
 
-        <mt-emoji-picker-button *ngFor="let emoji of emojisByCategory[category.category]"
+        <mt-emoji-picker-button *ngFor="let emoji of emojisByCategory[category.category];trackBy: emojisByCategoryTrackBy"
                                 (mtSelection)="emojiSelected($event)"
                                 [mtEmoji]="emoji"
                                 [style.margin.px]="marginButton">

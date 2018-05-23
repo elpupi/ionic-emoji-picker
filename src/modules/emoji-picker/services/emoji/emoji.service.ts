@@ -19,14 +19,15 @@ import { VisitorRecursive } from '@json-object-parser/definition';
 
 import { ArrayOptionProperties, ArrayOption } from '@json-object-parser/array/array-option';
 import { ObjectOptionProperties, ObjectOption } from '@json-object-parser/object/object-option';
-import { LiteralOption } from '@json-object-parser/litral/literal-option';
+import { LiteralOption, LiteralOptionProperties } from '@json-object-parser/litral/literal-option';
 
 
 import { Observable, Observer, of } from 'rxjs';
-import { map, startWith, filter, mergeMap, tap } from 'rxjs/operators';
+import { map, startWith, filter, mergeMap, tap, shareReplay } from 'rxjs/operators';
 
 
 import * as camelCase from 'camelcase';
+import { IfStmt } from '@angular/compiler/src/output/output_ast';
 
 
 export interface LoadedCategories {
@@ -42,28 +43,51 @@ export class Emoji {
     // private categories: Array<string>;
     private emojis2: Partial<EmojiData>[]; */
     // public emojis$: Observable<EmojiCollections>;
-
+    static unicodeFlagsNot2Letters = ['wavingWhiteFlag', 'flag-england', 'flag-scotland', 'flag-wales'];
 
     private static extractionOption = {
         returnObject: EmojiCollections,
         mutate: {
             // tslint:disable-next-line:object-literal-shorthand
-            visitor: function (key: string, value: any) {
-
+            visitor: function (key: string, value: any, level: number) {
                 if (!(this instanceof LiteralOption)) {
-                    for (const keyProp of Object.keys(value)) {
-                        if (keyProp.includes('_')) {
-                            const newKey = camelCase(keyProp);
-                            value[newKey] = value[keyProp];
-
-                            delete value[keyProp];
-                        }
-                    }
 
                     if (typeof value === 'string' && value.includes('_')) {
                         return camelCase(value);
                     }
+
+                    if (typeof value === 'object' && value !== null) {
+                        for (const keyProp of Object.keys(value)) {
+                            if (keyProp.includes('_')) {
+                                const newKey = camelCase(keyProp);
+                                value[newKey] = value[keyProp];
+
+                                delete value[keyProp];
+                            }
+                        }
+                    }
+
                 }
+
+                if (level === 0) { // level 0 => array of emojis
+
+                    let nbZeroWidthJoiner = 0;
+                    const emoji: EmojiData = value;
+
+                    // emoji built with few charcater seperated with a Zero Width Joiner => Few charcaters visible (i.e: family: guy guy girl)
+                    if (emoji.category.toLowerCase() === 'flags' &&
+                        emoji.shortNames.find(name => Emoji.unicodeFlagsNot2Letters.indexOf(name) === -1) && // special case of flag
+                        emoji.unified.includes('-')) {
+                        nbZeroWidthJoiner = 1;
+                    }
+                    else {
+                        const r = emoji.unified.match(/200d/ig);
+                        nbZeroWidthJoiner = r === null ? 0 : r.length;
+                    }
+
+                    emoji.nbZeroWidthJoiner = nbZeroWidthJoiner;
+                }
+
 
 
                 return value;
@@ -73,6 +97,17 @@ export class Emoji {
 
         object: {
             all: true,
+            /*             mutate: (key: string, category: string, level: number) => {
+                            if (key.toLowerCase() === 'category')
+                                1 === 1;
+                        },
+                        properties: {
+                            category: {
+                                mutate: (key: string, category: string, level: number) => {
+                                    1 === 1;
+                                }
+                            } as LiteralOptionProperties
+                        }, */
 
             filter: (key: string, value: any) => {
                 /* if (key === 'category')
@@ -93,9 +128,11 @@ export class Emoji {
 
     constructor(public emojisRequest: EmojiRequest, private emojiOption: EmojiOption, private category: Category) {
         this.getEmojis();
-        this.emojis$.pipe(
-            tap(emojis => { this.emojis = emojis; })
-        );
+        /* this.emojis$.pipe(
+            tap(emojis => {
+                this.emojis = emojis;
+            })
+        ); */
         this.getCategories();
     }
 
@@ -114,6 +151,7 @@ export class Emoji {
                 this.emojis = this.createEmojis(json);
                 return this.emojis;
             }),
+            shareReplay(1)
             // startWith(new SkeletonCollections())
         );
     }

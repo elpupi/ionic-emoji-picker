@@ -31,6 +31,7 @@ export class EmojiPickerList {
     private _categories: Categories;
     public filteredCategories: Categories;
     private forceSkeleton = false;
+    private useSheet: boolean;
 
     @Output('mtEmojiSelection') emojiSelectionEmitter = new EventEmitter<EmojiData>();
 
@@ -56,6 +57,16 @@ export class EmojiPickerList {
         this.css.buttonsWidth.changed$.subscribe(({ prop, value }) => {
             this.buttonsWidth = value;
         });
+
+        this.emojiSheet.config.parameters.sheet.use.changed$.subscribe(use => this.useSheet = use.value);
+    }
+
+    private categoryTrackBy(index: number, category: Category) {
+        return category.category;
+    }
+
+    private emojisByCategoryTrackBy(index: number, emoji: EmojiData) {
+        return emoji.unified;
     }
 
     ngOnInit() {
@@ -113,22 +124,26 @@ export class EmojiPickerList {
     @Input('mtEmojisByCategory')
     public set emojisByCategory(byCategory: ByCategory) {
         // null bound means http and stuff not done
-        let skeletonSubscription: Subscription = undefined;
+        // let skeletonSubscription: Subscription = undefined;
 
         if (!byCategory || this.forceSkeleton /* === null */ /* || 1 === 1 */) {
 
-            skeletonSubscription = this.css.numberEmojisContent.changed$.subscribe(({ prop, value }) => {
+            const skeletonSubscription = this.css.numberEmojisContent.changed$.subscribe(({ prop, value }) => {
                 this._emojisByCategory = {
                     skeleton: Array(value).fill({ name: 'skeleton_emoji', unified: 'skeleton_emoji' })
                 };
             });
+
+            Object.defineProperty(this._emojisByCategory, 'skeletonSubscription', { value: skeletonSubscription, enumerable: false, configurable: true });
 
             /*  this._emojisByCategory = {
                  skeleton: Array(this.css.config.content.list.buttons.$$.numberEmojisContent() // this.numberSkeletonEmojis()
                  ).fill({ name: 'skeleton_emoji', unified: 'skeleton_emoji' })
              } as any; */
         } else {
-            if (skeletonSubscription !== undefined) skeletonSubscription.unsubscribe();
+            // if (skeletonSubscription !== undefined) skeletonSubscription.unsubscribe();
+            if (this._emojisByCategory.skeletonSubscription !== undefined)
+                (this._emojisByCategory.skeletonSubscription as any).unsubscribe();
 
             this._emojisByCategory = byCategory;
             this.filterNonEmptyCategories();

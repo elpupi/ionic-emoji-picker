@@ -8,6 +8,8 @@ import { CodeToUnicodePipe } from '@pipes/code-to-unicode.pipe';
 import { ProxyTypeObserver } from '@proxy';
 import { combineLatest } from 'rxjs/internal/operators/combineLatest';
 import { ProxyObserver } from '../../../../../../../Proxy/src/proxy/proxy-observer';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subscription, Subject } from 'rxjs';
 
 
 
@@ -17,8 +19,8 @@ import { ProxyObserver } from '../../../../../../../Proxy/src/proxy/proxy-observ
 })
 export class EmojiPickerButton {
 
-    // @Input('mtEmoji') emoji: EmojiData;
-    private _emoji: EmojiData;
+    @Input('mtEmoji') emoji: EmojiData;
+    // private _emoji: EmojiData;
     @Input('mtDataToEmit') dataToEmit;
     @Input('mtOptions') options;
     @Input('mtFitzpatrick') fitzpatrick;
@@ -30,70 +32,57 @@ export class EmojiPickerButton {
     public ngClass: { [className: string]: boolean };
     public innerHTML = '';
     private sheet: ProxyTypeObserver<Sheet>;
-    private _isSkeleton: ProxyTypeObserver<boolean>;
+    //  private _isSkeleton: ProxyTypeObserver<boolean>;
+    // private styleSubscription: Subscription;
+    private destroy$: Subject<boolean> = new Subject<boolean>();
 
 
     constructor(emojiSheet: EmojiSheet, private css: Css, private codeToUnicode: CodeToUnicodePipe) {
         this.sheet = emojiSheet.config.parameters.sheet;
-        this._isSkeleton = ProxyObserver.create();
+        // this._isSkeleton = ProxyObserver.create();
     }
 
-    @Input('mtEmoji') set emoji(emoji: EmojiData) {
-        this._isSkeleton.$(emoji.unified === 'skeleton_emoji');
-        this._emoji = emoji;
-    }
+    /*  @Input('mtEmoji') set emoji(emoji: EmojiData) {
+         const isSkeleton = emoji.unified === 'skeleton_emoji';
 
-    get emoji() {
-        return this._emoji;
-    }
+         if (this._isSkeleton.$$ !== isSkeleton) // reset only if the state change
+             this._isSkeleton.$(isSkeleton);
 
+         this._emoji = emoji;
+     } */
+
+    /*  get emoji() {
+         return this._emoji;
+     }
+  */
 
     private get isSkeleton() {
-        return this._isSkeleton; // this.emoji.unified === 'skeleton_emoji';
+        return this.emoji.unified === 'skeleton_emoji';
     }
 
 
     public ngOnInit() {
+        this.css.buttonStyle.changed$.pipe(
+            takeUntil(this.destroy$)
+        ).subscribe((buttonStyle) => this.ngStyle = buttonStyle.value(this.emoji, this.isSkeleton));
+
+
         this.sheet.use.changed$.pipe(
-            combineLatest(this.isSkeleton.changed$)
-        )
-            .subscribe(([use, isSkeleton]) => {
-                if (use.value) {
-                    if (!isSkeleton.value)
-                        this.css.buttonStyle.changed$.subscribe(buttonStyle => this.ngStyle = buttonStyle.value(this.emoji));
-                    else
-                        this.ngStyle = { 'margin.px': this.css.config.content.list.buttons.button.margin.$$ };
+            takeUntil(this.destroy$)
+        ).subscribe(use => {
+            this.innerHTML = !use.value ? this.codeToUnicode.transform(this.emoji.unified) : '';
+        });
 
-                } else {
-                    if (!isSkeleton.value)
-                        this.innerHTML = this.codeToUnicode.transform(this.emoji.unified);
-                    else
-                        this.innerHTML = '';
-                }
-
-                this.ngClass = {
-                    'emoji-button--skeleton': isSkeleton.value,
-                    'emoji-button': true,
-                    'emoji-button--unicode': !use.value,
-                    'emoji-button--sheet': use.value,
-                };
-            });
-
-
-        /* if (this.sheet.use.$$ && !this.isSkeleton()) {
-            this.css.buttonStyle.changed$.subscribe(buttonStyle => this.ngStyle = buttonStyle.value(this.emoji));
-        } */
-
-        /*  this.ngClass = {
-             'emoji-button--skeleton': this.isSkeleton(),
-             'emoji-button': true,
-             'emoji-button--unicode': !this.sheet.use.$$,
-             'emoji-button--sheet': this.sheet.use.$$,
-         };
-  */
-        /*    if (!this.sheet.use.$$ && !this.isSkeleton())
-               this.innerHTML = this.codeToUnicode.transform(this.emoji.unified); */
-
+        this.sheet.use.changed$.pipe(
+            takeUntil(this.destroy$)
+        ).subscribe((use) => {
+            this.ngClass = {
+                'emoji-button--skeleton': this.isSkeleton,
+                'emoji-button': true,
+                'emoji-button--unicode': !use.value,
+                'emoji-button--sheet': use.value,
+            };
+        });
     }
 
     public buttonClikedHandler() {
@@ -101,7 +90,12 @@ export class EmojiPickerButton {
         // this.selectionEmitter.emit(this.dataToEmit || this.emoji);
         /*  const event = this.dataToEmit || this.emoji;
          this.selectionEmitter.emit(EmojiEvent.fromArray(event)); */
-        if (!this.isSkeleton.$$)
+        if (!this.isSkeleton)
             this.selectionEmitter.emit(this.emoji);
+    }
+
+    ngOnDestroy() {
+        this.destroy$.next(true);
+        this.destroy$.unsubscribe();
     }
 }

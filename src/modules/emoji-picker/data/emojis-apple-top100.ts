@@ -14,7 +14,8 @@ export class EmojisAppleTop100 extends Collections {
                 'one'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'NEW MOON WITH FACE',
@@ -26,7 +27,8 @@ export class EmojisAppleTop100 extends Collections {
                 'new_moon_with_face'
             ],
             category: 'Travel & Places',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'GLOWING STAR',
@@ -38,7 +40,8 @@ export class EmojisAppleTop100 extends Collections {
                 'star2'
             ],
             category: 'Travel & Places',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'CHERRY BLOSSOM',
@@ -50,7 +53,8 @@ export class EmojisAppleTop100 extends Collections {
                 'cherry_blossom'
             ],
             category: 'Animals & Nature',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'ROSE',
@@ -62,7 +66,8 @@ export class EmojisAppleTop100 extends Collections {
                 'rose'
             ],
             category: 'Animals & Nature',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'PARTY POPPER',
@@ -74,7 +79,8 @@ export class EmojisAppleTop100 extends Collections {
                 'tada'
             ],
             category: 'Activities',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'HEADPHONE',
@@ -86,7 +92,8 @@ export class EmojisAppleTop100 extends Collections {
                 'headphones'
             ],
             category: 'Objects',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'MULTIPLE MUSICAL NOTES',
@@ -98,7 +105,8 @@ export class EmojisAppleTop100 extends Collections {
                 'notes'
             ],
             category: 'Objects',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'EYES',
@@ -110,7 +118,8 @@ export class EmojisAppleTop100 extends Collections {
                 'eyes'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'WHITE LEFT POINTING BACKHAND INDEX',
@@ -159,7 +168,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'WHITE RIGHT POINTING BACKHAND INDEX',
@@ -208,7 +218,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FISTED HAND SIGN',
@@ -258,7 +269,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'WAVING HAND SIGN',
@@ -307,7 +319,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'OK HAND SIGN',
@@ -356,7 +369,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'THUMBS UP SIGN',
@@ -406,7 +420,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'THUMBS DOWN SIGN',
@@ -456,7 +471,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'CLAPPING HANDS SIGN',
@@ -505,7 +521,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'CROWN',
@@ -517,7 +534,8 @@ export class EmojisAppleTop100 extends Collections {
                 'crown'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SKULL',
@@ -529,7 +547,8 @@ export class EmojisAppleTop100 extends Collections {
                 'skull'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'INFORMATION DESK PERSON',
@@ -578,7 +597,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'KISS MARK',
@@ -590,7 +610,8 @@ export class EmojisAppleTop100 extends Collections {
                 'kiss'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BEATING HEART',
@@ -602,7 +623,8 @@ export class EmojisAppleTop100 extends Collections {
                 'heartbeat'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BROKEN HEART',
@@ -618,7 +640,8 @@ export class EmojisAppleTop100 extends Collections {
                 '</3'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'TWO HEARTS',
@@ -630,7 +653,8 @@ export class EmojisAppleTop100 extends Collections {
                 'two_hearts'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SPARKLING HEART',
@@ -642,7 +666,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sparkling_heart'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'GROWING HEART',
@@ -654,7 +679,8 @@ export class EmojisAppleTop100 extends Collections {
                 'heartpulse'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'HEART WITH ARROW',
@@ -666,7 +692,8 @@ export class EmojisAppleTop100 extends Collections {
                 'cupid'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BLUE HEART',
@@ -678,7 +705,8 @@ export class EmojisAppleTop100 extends Collections {
                 'blue_heart'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'GREEN HEART',
@@ -690,7 +718,8 @@ export class EmojisAppleTop100 extends Collections {
                 'green_heart'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'YELLOW HEART',
@@ -702,7 +731,8 @@ export class EmojisAppleTop100 extends Collections {
                 'yellow_heart'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'PURPLE HEART',
@@ -714,7 +744,8 @@ export class EmojisAppleTop100 extends Collections {
                 'purple_heart'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'REVOLVING HEARTS',
@@ -726,7 +757,8 @@ export class EmojisAppleTop100 extends Collections {
                 'revolving_hearts'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FLEXED BICEPS',
@@ -775,7 +807,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'HUNDRED POINTS SYMBOL',
@@ -787,7 +820,8 @@ export class EmojisAppleTop100 extends Collections {
                 '100'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'CAMERA',
@@ -799,7 +833,8 @@ export class EmojisAppleTop100 extends Collections {
                 'camera'
             ],
             category: 'Objects',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FIRE',
@@ -811,7 +846,8 @@ export class EmojisAppleTop100 extends Collections {
                 'fire'
             ],
             category: 'Travel & Places',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'PISTOL',
@@ -823,7 +859,8 @@ export class EmojisAppleTop100 extends Collections {
                 'gun'
             ],
             category: 'Objects',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'GRINNING FACE',
@@ -835,7 +872,8 @@ export class EmojisAppleTop100 extends Collections {
                 'grinning'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'GRINNING FACE WITH SMILING EYES',
@@ -847,7 +885,8 @@ export class EmojisAppleTop100 extends Collections {
                 'grin'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE WITH TEARS OF JOY',
@@ -859,7 +898,8 @@ export class EmojisAppleTop100 extends Collections {
                 'joy'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH OPEN MOUTH',
@@ -876,7 +916,8 @@ export class EmojisAppleTop100 extends Collections {
                 '=-)'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH OPEN MOUTH AND SMILING EYES',
@@ -895,7 +936,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':-D'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH OPEN MOUTH AND COLD SWEAT',
@@ -907,7 +949,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sweat_smile'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES',
@@ -924,7 +967,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':->'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH HALO',
@@ -936,7 +980,8 @@ export class EmojisAppleTop100 extends Collections {
                 'innocent'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH HORNS',
@@ -948,7 +993,8 @@ export class EmojisAppleTop100 extends Collections {
                 'smiling_imp'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'WINKING FACE',
@@ -965,7 +1011,8 @@ export class EmojisAppleTop100 extends Collections {
                 ';-)'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH SMILING EYES',
@@ -977,7 +1024,8 @@ export class EmojisAppleTop100 extends Collections {
                 'blush'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE SAVOURING DELICIOUS FOOD',
@@ -989,7 +1037,8 @@ export class EmojisAppleTop100 extends Collections {
                 'yum'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'RELIEVED FACE',
@@ -1001,7 +1050,8 @@ export class EmojisAppleTop100 extends Collections {
                 'relieved'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH HEART-SHAPED EYES',
@@ -1013,7 +1063,8 @@ export class EmojisAppleTop100 extends Collections {
                 'heart_eyes'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING FACE WITH SUNGLASSES',
@@ -1028,7 +1079,8 @@ export class EmojisAppleTop100 extends Collections {
                 '8)'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMIRKING FACE',
@@ -1040,7 +1092,8 @@ export class EmojisAppleTop100 extends Collections {
                 'smirk'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'NEUTRAL FACE',
@@ -1056,7 +1109,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':-|'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'EXPRESSIONLESS FACE',
@@ -1068,7 +1122,8 @@ export class EmojisAppleTop100 extends Collections {
                 'expressionless'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'UNAMUSED FACE',
@@ -1080,7 +1135,8 @@ export class EmojisAppleTop100 extends Collections {
                 'unamused'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE WITH COLD SWEAT',
@@ -1092,7 +1148,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sweat'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'PENSIVE FACE',
@@ -1104,7 +1161,8 @@ export class EmojisAppleTop100 extends Collections {
                 'pensive'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'CONFUSED FACE',
@@ -1122,7 +1180,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':-/'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'CONFOUNDED FACE',
@@ -1134,7 +1193,8 @@ export class EmojisAppleTop100 extends Collections {
                 'confounded'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE THROWING A KISS',
@@ -1150,7 +1210,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':-*'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'KISSING FACE WITH CLOSED EYES',
@@ -1162,7 +1223,8 @@ export class EmojisAppleTop100 extends Collections {
                 'kissing_closed_eyes'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE WITH STUCK-OUT TONGUE',
@@ -1183,7 +1245,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':-b'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE WITH STUCK-OUT TONGUE AND WINKING EYE',
@@ -1204,7 +1267,8 @@ export class EmojisAppleTop100 extends Collections {
                 ';-P'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES',
@@ -1216,7 +1280,8 @@ export class EmojisAppleTop100 extends Collections {
                 'stuck_out_tongue_closed_eyes'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'DISAPPOINTED FACE',
@@ -1234,7 +1299,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':-('
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'ANGRY FACE',
@@ -1250,7 +1316,8 @@ export class EmojisAppleTop100 extends Collections {
                 '>:-('
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'POUTING FACE',
@@ -1262,7 +1329,8 @@ export class EmojisAppleTop100 extends Collections {
                 'rage'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'CRYING FACE',
@@ -1278,7 +1346,8 @@ export class EmojisAppleTop100 extends Collections {
                 ':\'('
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'PERSEVERING FACE',
@@ -1290,7 +1359,8 @@ export class EmojisAppleTop100 extends Collections {
                 'persevere'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE WITH LOOK OF TRIUMPH',
@@ -1302,7 +1372,8 @@ export class EmojisAppleTop100 extends Collections {
                 'triumph'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'DISAPPOINTED BUT RELIEVED FACE',
@@ -1314,7 +1385,8 @@ export class EmojisAppleTop100 extends Collections {
                 'disappointed_relieved'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'WEARY FACE',
@@ -1326,7 +1398,8 @@ export class EmojisAppleTop100 extends Collections {
                 'weary'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SLEEPY FACE',
@@ -1338,7 +1411,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sleepy'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'TIRED FACE',
@@ -1350,7 +1424,8 @@ export class EmojisAppleTop100 extends Collections {
                 'tired_face'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'GRIMACING FACE',
@@ -1362,7 +1437,8 @@ export class EmojisAppleTop100 extends Collections {
                 'grimacing'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'LOUDLY CRYING FACE',
@@ -1374,7 +1450,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sob'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE SCREAMING IN FEAR',
@@ -1386,7 +1463,8 @@ export class EmojisAppleTop100 extends Collections {
                 'scream'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FLUSHED FACE',
@@ -1398,7 +1476,8 @@ export class EmojisAppleTop100 extends Collections {
                 'flushed'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SLEEPING FACE',
@@ -1410,7 +1489,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sleeping'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'FACE WITH MEDICAL MASK',
@@ -1422,7 +1502,8 @@ export class EmojisAppleTop100 extends Collections {
                 'mask'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SMILING CAT FACE WITH HEART-SHAPED EYES',
@@ -1434,7 +1515,8 @@ export class EmojisAppleTop100 extends Collections {
                 'heart_eyes_cat'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SEE-NO-EVIL MONKEY',
@@ -1446,7 +1528,8 @@ export class EmojisAppleTop100 extends Collections {
                 'see_no_evil'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SPEAK-NO-EVIL MONKEY',
@@ -1458,7 +1541,8 @@ export class EmojisAppleTop100 extends Collections {
                 'speak_no_evil'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'HAPPY PERSON RAISING ONE HAND',
@@ -1507,7 +1591,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'PERSON RAISING BOTH HANDS IN CELEBRATION',
@@ -1556,7 +1641,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'PERSON WITH FOLDED HANDS',
@@ -1605,7 +1691,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BLACK RIGHT-POINTING TRIANGLE',
@@ -1617,7 +1704,8 @@ export class EmojisAppleTop100 extends Collections {
                 'arrow_forward'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BLACK SUN WITH RAYS',
@@ -1629,7 +1717,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sunny'
             ],
             category: 'Travel & Places',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'WHITE SMILING FACE',
@@ -1641,7 +1730,8 @@ export class EmojisAppleTop100 extends Collections {
                 'relaxed'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BLACK HEART SUIT',
@@ -1653,7 +1743,8 @@ export class EmojisAppleTop100 extends Collections {
                 'hearts'
             ],
             category: 'Activities',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BLACK UNIVERSAL RECYCLING SYMBOL',
@@ -1665,7 +1756,8 @@ export class EmojisAppleTop100 extends Collections {
                 'recycle'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'WHITE HEAVY CHECK MARK',
@@ -1677,7 +1769,8 @@ export class EmojisAppleTop100 extends Collections {
                 'white_check_mark'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'RAISED HAND',
@@ -1727,7 +1820,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'VICTORY HAND',
@@ -1776,7 +1870,8 @@ export class EmojisAppleTop100 extends Collections {
                     hasImg: true
                 }
             },
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'HEAVY CHECK MARK',
@@ -1788,7 +1883,8 @@ export class EmojisAppleTop100 extends Collections {
                 'heavy_check_mark'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'SPARKLES',
@@ -1800,7 +1896,8 @@ export class EmojisAppleTop100 extends Collections {
                 'sparkles'
             ],
             category: 'Activities',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'HEAVY BLACK HEART',
@@ -1816,7 +1913,8 @@ export class EmojisAppleTop100 extends Collections {
                 '<3'
             ],
             category: 'Smileys & People',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'BLACK RIGHTWARDS ARROW',
@@ -1828,7 +1926,8 @@ export class EmojisAppleTop100 extends Collections {
                 'arrow_right'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         },
         {
             name: 'LEFTWARDS BLACK ARROW',
@@ -1840,7 +1939,8 @@ export class EmojisAppleTop100 extends Collections {
                 'arrow_left'
             ],
             category: 'Symbols',
-            hasImg: true
+            hasImg: true,
+            nbZeroWidthJoiner: 0
         }
     ];
 

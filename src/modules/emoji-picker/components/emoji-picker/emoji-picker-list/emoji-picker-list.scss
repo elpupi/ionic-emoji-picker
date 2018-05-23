@@ -19,6 +19,19 @@ mt-emoji-picker-list {
     .category__buttons {
         align-self: center;
         padding-top: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-grow: 0;
+
+        &.unicode {
+            justify-content: space-between;
+        }
+
+        &:after {
+            content: '';
+            flex-grow: 1;
+        }
     }
 
     /* .emoji-buttons::before,

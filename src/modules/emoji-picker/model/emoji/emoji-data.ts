@@ -13,5 +13,7 @@ export class EmojiData {
     skinVariations?: {
         [variation: string]: VariationData;
     };
+    // extras
+    nbZeroWidthJoiner: number;
 
 }
