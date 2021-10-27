@@ -6,7 +6,8 @@ const defaultConfig = require('../node_modules/@ionic/app-scripts/config/watch.c
 defaultConfig.srcFiles.paths.push(...[
     '../JsonObjectParser/src/parser/**/*.ts',
     '../FeaturesDetection/src/**/*.ts',
-    '../Proxy/src/**/*.ts'
+    '../Proxy/src/**/*.ts',
+    '../Stickies/src/**/*.ts'
     // '{{SRC}}/**/*.(ts|html|s(c|a)ss)'
 ]);
 

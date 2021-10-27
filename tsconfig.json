@@ -60,11 +60,17 @@
             "@features-detection/*": [
                 "../FeaturesDetection/src/*"
             ],
+            "features-detection/*": [
+                "../FeaturesDetection/src/*"
+            ],
             "@core/*": [
                 "../FeaturesDetection/src/core/*"
             ],
             "@proxy": [
                 "../Proxy/src"
+            ],
+            "@stickies": [
+                "../Stickies/src"
             ]
         }
     },
@@ -73,7 +79,8 @@
         "global-ts-definition/**/*.ts",
         "../JsonObjectParser/src/parser/**/*.ts",
         "../FeaturesDetection/src/**/*.ts",
-        "../Proxy/src/**/*.ts"
+        "../Proxy/src/**/*.ts",
+        "../Stickies/src/**/*.ts",
     ],
     "exclude": [
         "node_modules",

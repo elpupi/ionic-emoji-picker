@@ -2,11 +2,39 @@ page-home {
     .emoji-content-editable {
         background: #eee;
         border: 1px solid #ccc;
+        margin: 0;
         padding: 0.5rem 0.25rem;
+        min-height: 3rem;
         text-align: center;
     }
 
-    .emoji-picker {
+    // height: 100%;
+    .grid {
+        // align-items: flex-start;
+
+    }
+
+    @media (min-width: 768px) {
+        .col-emoji-picker {
+            position: static;
+            min-height: 100%;
+            align-self: stretch;
+
+            /*   position: absolute;
+              top: 0; */
+        }
+    }
+
+    & .emoji-picker {
         margin-top: 50px;
+
+        @media (min-width: 768px) {
+            & {
+                margin-top: 0px;
+
+                /*   position: absolute;
+                  top: 0; */
+            }
+        }
     }
 }

@@ -9,38 +9,48 @@
 <ion-content>
 
 
-    <ion-grid class="config"
-              fixed>
-        <ion-row justify-content-center>
-            <ion-col>
+    <ion-grid class="grid"
+              fixed
+              no-padding>
+        <ion-row justify-content-center
+                 align-items-stretch>
+            <ion-col col-12
+                     col-md-6>
 
                 <config></config>
 
             </ion-col>
-        </ion-row>
-    </ion-grid>
 
 
+            <!-- align-self-stretch -->
+            <ion-col col-12
+                     col-md-6
+                     class="col-emoji-picker"
+                     #stickContainer>
 
-    <div class="emoji-picker">
-        <p class="emoji-content-editable"
-           [innerHTML]="content"></p>
+                <div class="emoji-picker"
+                     #toStick>
+                    <p class="emoji-content-editable"
+                       [innerHTML]="contentEdit"></p>
 
-        <ion-grid class="emojis"
+                    <!-- <ion-grid class="emojis"
                   fixed>
             <ion-row justify-content-center>
                 <ion-col>
-
+ -->
                     <mt-emoji-picker [mtDimension]="dimension"
                                      [mtInputAutofocus]="true"
                                      (mtEmojiSelect)="emojiSelectedHandler($event)"
                                      (mtPickerClose)="pickerClosedHandler($event)"></mt-emoji-picker>
 
-                </ion-col>
+                    <!--     </ion-col>
             </ion-row>
         </ion-grid>
+ -->
 
+                </div>
 
-    </div>
-
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
